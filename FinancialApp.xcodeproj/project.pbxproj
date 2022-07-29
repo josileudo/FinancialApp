@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D2CFA1F42892C24600AE5981 /* FinancialAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CFA1F32892C24600AE5981 /* FinancialAppApp.swift */; };
+		D2CFA1F42892C24600AE5981 /* FinancialApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CFA1F32892C24600AE5981 /* FinancialApp.swift */; };
 		D2CFA1F62892C24600AE5981 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CFA1F52892C24600AE5981 /* ContentView.swift */; };
 		D2CFA1F82892C24800AE5981 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2CFA1F72892C24800AE5981 /* Assets.xcassets */; };
 		D2CFA1FB2892C24800AE5981 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2CFA1FA2892C24800AE5981 /* Preview Assets.xcassets */; };
 		D2CFA2052892C24800AE5981 /* FinancialAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CFA2042892C24800AE5981 /* FinancialAppTests.swift */; };
 		D2CFA20F2892C24800AE5981 /* FinancialAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CFA20E2892C24800AE5981 /* FinancialAppUITests.swift */; };
 		D2CFA2112892C24800AE5981 /* FinancialAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CFA2102892C24800AE5981 /* FinancialAppUITestsLaunchTests.swift */; };
+		D2CFA21E289323FA00AE5981 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CFA21D289323FA00AE5981 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +36,7 @@
 
 /* Begin PBXFileReference section */
 		D2CFA1F02892C24600AE5981 /* FinancialApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinancialApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D2CFA1F32892C24600AE5981 /* FinancialAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialAppApp.swift; sourceTree = "<group>"; };
+		D2CFA1F32892C24600AE5981 /* FinancialApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialApp.swift; sourceTree = "<group>"; };
 		D2CFA1F52892C24600AE5981 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D2CFA1F72892C24800AE5981 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2CFA1FA2892C24800AE5981 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -44,6 +45,7 @@
 		D2CFA20A2892C24800AE5981 /* FinancialAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinancialAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2CFA20E2892C24800AE5981 /* FinancialAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialAppUITests.swift; sourceTree = "<group>"; };
 		D2CFA2102892C24800AE5981 /* FinancialAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D2CFA21D289323FA00AE5981 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +96,9 @@
 		D2CFA1F22892C24600AE5981 /* FinancialApp */ = {
 			isa = PBXGroup;
 			children = (
-				D2CFA1F32892C24600AE5981 /* FinancialAppApp.swift */,
+				D2CFA1F32892C24600AE5981 /* FinancialApp.swift */,
 				D2CFA1F52892C24600AE5981 /* ContentView.swift */,
+				D2CFA21D289323FA00AE5981 /* Extensions.swift */,
 				D2CFA1F72892C24800AE5981 /* Assets.xcassets */,
 				D2CFA1F92892C24800AE5981 /* Preview Content */,
 			);
@@ -258,7 +261,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2CFA1F62892C24600AE5981 /* ContentView.swift in Sources */,
-				D2CFA1F42892C24600AE5981 /* FinancialAppApp.swift in Sources */,
+				D2CFA21E289323FA00AE5981 /* Extensions.swift in Sources */,
+				D2CFA1F42892C24600AE5981 /* FinancialApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
