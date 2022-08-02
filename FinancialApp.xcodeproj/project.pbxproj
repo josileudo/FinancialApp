@@ -19,6 +19,7 @@
 		D2CFA20F2892C24800AE5981 /* FinancialAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CFA20E2892C24800AE5981 /* FinancialAppUITests.swift */; };
 		D2CFA2112892C24800AE5981 /* FinancialAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CFA2102892C24800AE5981 /* FinancialAppUITestsLaunchTests.swift */; };
 		D2CFA21E289323FA00AE5981 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CFA21D289323FA00AE5981 /* Extensions.swift */; };
+		D2D63FCB28994EFE00D9D3D3 /* TransactionListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D63FCA28994EFE00D9D3D3 /* TransactionListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		D2CFA20E2892C24800AE5981 /* FinancialAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialAppUITests.swift; sourceTree = "<group>"; };
 		D2CFA2102892C24800AE5981 /* FinancialAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D2CFA21D289323FA00AE5981 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		D2D63FCA28994EFE00D9D3D3 /* TransactionListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,8 @@
 			children = (
 				D2CFA1F32892C24600AE5981 /* FinancialApp.swift */,
 				D2CFA1F52892C24600AE5981 /* ContentView.swift */,
+				D2A03FD52897F35400EE2067 /* TransactionRow.swift */,
+				D2D63FCA28994EFE00D9D3D3 /* TransactionListViewModel.swift */,
 				D2B1BB7B28942B470053419C /* TransactionModel.swift */,
 				D2CFA21D289323FA00AE5981 /* Extensions.swift */,
 				D2CFA1F72892C24800AE5981 /* Assets.xcassets */,
@@ -119,7 +123,6 @@
 			children = (
 				D2CFA1FA2892C24800AE5981 /* Preview Assets.xcassets */,
 				D2B1BB7D289476700053419C /* PreviewData.swift */,
-				D2A03FD52897F35400EE2067 /* TransactionRow.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				D2CFA1F62892C24600AE5981 /* ContentView.swift in Sources */,
 				D2A03FD62897F35400EE2067 /* TransactionRow.swift in Sources */,
 				D2CFA21E289323FA00AE5981 /* Extensions.swift in Sources */,
+				D2D63FCB28994EFE00D9D3D3 /* TransactionListViewModel.swift in Sources */,
 				D2CFA1F42892C24600AE5981 /* FinancialApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

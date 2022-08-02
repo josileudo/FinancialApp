@@ -9,16 +9,16 @@ import Foundation;
 import SwiftUI;
 
 var transactionPreviewData = Transaction(
-    id: 1,
-    date: "01/24/2022",
-    instituition: "Desjardins",
+    id: 25,
+    date: "02/16/2022",
+    institution: "Desjardins",
     account: "Visa Desjardins",
-    merchant: "Apple",
-    amount: 11.49,
+    merchant: "STM",
+    amount: 6.50,
     type: "debit",
-    categoryId: 801,
-    category: "Software",
-    isPending: false,
+    categoryId: 101,
+    category: "Public Transportation",
+    isPending: true,
     isTransfer: false,
     isExpense: true,
     isEdited: false
