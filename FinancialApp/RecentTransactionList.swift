@@ -46,7 +46,6 @@ struct RecentTransactionList: View {
         .shadow(color: Color.primary.opacity(0.2), radius: 10, x: 0, y: 5)
       }
     
-        
     }
 
 struct RecentTransactionList_Previews: PreviewProvider {
