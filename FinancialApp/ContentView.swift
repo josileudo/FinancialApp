@@ -35,6 +35,7 @@ struct ContentView: View {
             }
         }
         .navigationViewStyle(.stack)
+        .accentColor(.primary)
     }
 }
 
@@ -49,7 +50,7 @@ struct ContentView_Previews: PreviewProvider {
         Group {
             ContentView()
             ContentView()
-                .preferredColorScheme(.dark) 
+                .preferredColorScheme(.dark)
         }
         .environmentObject(transactionListVM);
     }
