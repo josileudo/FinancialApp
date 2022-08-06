@@ -5,9 +5,12 @@
 //  Created by Josileudo Rodrigues on 28/07/22.
 //
 
-import SwiftUI
+import SwiftUI;
+import SwiftUICharts;
 
 struct ContentView: View {
+    var demoChart: [Double] = [2, 4, 6, 7, 8, 5, 3, 1];
+    
     var body: some View {
         NavigationView {
             ScrollView {
@@ -17,6 +20,24 @@ struct ContentView: View {
                         .font(.title2)
                         .bold()
                     
+                    // MARK: Transaction List
+                    CardView {
+                        VStack {
+                            ChartLabel("$900", type: .title)
+                            LineChart()
+                        }
+                        .background(Color.systemBackground)
+                    }
+                    .data(demoChart)
+                    .chartStyle(ChartStyle(
+                         backgroundColor: Color.systemBackground,
+                         foregroundColor: ColorGradient(
+                             Color.icon.opacity(0.4),
+                             Color.icon)
+                         )
+                    )
+                   .frame( height: 300 )
+                   
                     // MARK: Transaction List
                     RecentTransactionList();
                 }
@@ -54,5 +75,4 @@ struct ContentView_Previews: PreviewProvider {
         }
         .environmentObject(transactionListVM);
     }
-    
 }
