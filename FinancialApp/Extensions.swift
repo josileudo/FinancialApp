@@ -26,9 +26,15 @@ extension DateFormatter {
 }
 
 extension String {
-    func parsedDate() -> Date {
+    func dateParsed() -> Date {
         guard let parsedDate = DateFormatter.allNumericUSA.date(from: self) else { return Date() };
         
         return parsedDate;
+    }
+}
+
+extension Date: Strideable {
+    func formatted() -> String {
+        return self.formatted(.dateTime.year().month().day());
     }
 }
