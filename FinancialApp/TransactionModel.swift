@@ -24,7 +24,7 @@ struct Transaction: Identifiable, Decodable, Hashable {
     let isEdited: Bool
     
     var icon: FontAwesomeCode {
-        if let category = Category.all.first(where: {$0.id == categoryId }) {
+        if let category = Category.all.first(where: { $0.id == categoryId }) {
             return category.icon;
         }
         
@@ -32,7 +32,7 @@ struct Transaction: Identifiable, Decodable, Hashable {
     }
     
     var dateParsed: Date {
-        date.parsedDate();
+        date.dateParsed();
     }
     
     var signedAmount: Double {
