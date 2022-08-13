@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D20A7A8028A6DB0F0084B931 /* TransactionExpenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20A7A7F28A6DB0F0084B931 /* TransactionExpenses.swift */; };
 		D22F2341289EF32D00FFEC38 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = D22F2340289EF32D00FFEC38 /* SwiftUICharts */; };
 		D247CF13289A9C2600C76FB6 /* RecentTransactionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D247CF12289A9C2600C76FB6 /* RecentTransactionList.swift */; };
 		D2A03FD62897F35400EE2067 /* TransactionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A03FD52897F35400EE2067 /* TransactionRow.swift */; };
@@ -24,6 +25,7 @@
 		D2CFA2112892C24800AE5981 /* FinancialAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CFA2102892C24800AE5981 /* FinancialAppUITestsLaunchTests.swift */; };
 		D2CFA21E289323FA00AE5981 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CFA21D289323FA00AE5981 /* Extensions.swift */; };
 		D2D63FCB28994EFE00D9D3D3 /* TransactionListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D63FCA28994EFE00D9D3D3 /* TransactionListViewModel.swift */; };
+		D2DF62E828A40257004336D6 /* TransactionBalance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF62E728A40257004336D6 /* TransactionBalance.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D20A7A7F28A6DB0F0084B931 /* TransactionExpenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionExpenses.swift; sourceTree = "<group>"; };
 		D247CF12289A9C2600C76FB6 /* RecentTransactionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTransactionList.swift; sourceTree = "<group>"; };
 		D2A03FD52897F35400EE2067 /* TransactionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRow.swift; sourceTree = "<group>"; };
 		D2A83F3B289D9B200094EB52 /* TransactionsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsList.swift; sourceTree = "<group>"; };
@@ -61,6 +64,7 @@
 		D2CFA2102892C24800AE5981 /* FinancialAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D2CFA21D289323FA00AE5981 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D2D63FCA28994EFE00D9D3D3 /* TransactionListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListViewModel.swift; sourceTree = "<group>"; };
+		D2DF62E728A40257004336D6 /* TransactionBalance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionBalance.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +126,8 @@
 				D2CFA21D289323FA00AE5981 /* Extensions.swift */,
 				D247CF12289A9C2600C76FB6 /* RecentTransactionList.swift */,
 				D2A83F3B289D9B200094EB52 /* TransactionsList.swift */,
+				D2DF62E728A40257004336D6 /* TransactionBalance.swift */,
+				D20A7A7F28A6DB0F0084B931 /* TransactionExpenses.swift */,
 				D2CFA1F72892C24800AE5981 /* Assets.xcassets */,
 				D2CFA1F92892C24800AE5981 /* Preview Content */,
 			);
@@ -297,10 +303,12 @@
 				D2B1BB7E289476700053419C /* PreviewData.swift in Sources */,
 				D247CF13289A9C2600C76FB6 /* RecentTransactionList.swift in Sources */,
 				D2A83F3C289D9B200094EB52 /* TransactionsList.swift in Sources */,
+				D20A7A8028A6DB0F0084B931 /* TransactionExpenses.swift in Sources */,
 				D2B1BB7C28942B470053419C /* TransactionModel.swift in Sources */,
 				D2CFA1F62892C24600AE5981 /* ContentView.swift in Sources */,
 				D2A03FD62897F35400EE2067 /* TransactionRow.swift in Sources */,
 				D2CFA21E289323FA00AE5981 /* Extensions.swift in Sources */,
+				D2DF62E828A40257004336D6 /* TransactionBalance.swift in Sources */,
 				D2D63FCB28994EFE00D9D3D3 /* TransactionListViewModel.swift in Sources */,
 				D2CFA1F42892C24600AE5981 /* FinancialApp.swift in Sources */,
 			);
