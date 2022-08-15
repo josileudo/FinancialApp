@@ -8,9 +8,13 @@
 import Foundation;
 import Combine;
 import Collections;
+import SwiftUI
 
 typealias TransactionGroup = OrderedDictionary<String, [Transaction]>
 typealias TransactionPrefixSum = [(String, Double)];
+typealias TotalTransactions = Double;
+
+var dateTest: [Double] = [200, 300, 400, 500, -100];
 
 final class TransactionListViewModel: ObservableObject {
     @Published var transactions: [Transaction] = [];
@@ -66,8 +70,6 @@ final class TransactionListViewModel: ObservableObject {
         
         let today = "02/22/2022".dateParsed() //Date()
         
-        // TODO: Create filter with (month and year)
-        
         let dateInterval = Calendar.current.dateInterval(of: .month, for: today)!
         print("dateInterval", dateInterval);
         
@@ -85,5 +87,29 @@ final class TransactionListViewModel: ObservableObject {
         }
         
         return cumulativeSum;
+    }
+    
+    // TODO: Create filter with (month and year)
+    
+    func totalTransactions() -> TotalTransactions {
+        guard !transactions.isEmpty else { return 0}
+        
+        var sum: Double = .zero;
+        sum = transactions.reduce(0){$0 + $1.signedAmount};
+        
+        return sum;
+    }
+    
+    func incomeTotal(type: TransactionType) -> Double {
+        guard !transactions.isEmpty else { return 0}
+        var valueEx: Double = .zero;
+        
+        let typeExpense = transactions.filter{$0.amount > 0 && $0.type == type.rawValue}
+        let res = typeExpense.reduce(0){$0 + $1.amount}
+            
+        valueEx = res;
+        print(valueEx);
+        
+        return valueEx
     }
 }

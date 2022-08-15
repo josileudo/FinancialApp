@@ -9,32 +9,35 @@ import SwiftUI
 import SwiftUIFontIcon
 
 struct TransactionExpenses: View {
-    var incomeTotal: Double = 2000;
-    var expenseTotal: Double = 520;
+    
+    @EnvironmentObject var transactionListVM : TransactionListViewModel;
     
     var body: some View {
         HStack(spacing: 20) {
+            
             // MARK: Income total
-            HStack(spacing: 10) {
+            HStack(spacing: 8) {
+                
                 // MARK: Income icon
                 RoundedRectangle(cornerRadius: 20, style: .continuous)
                     .fill(Color.income)
-                    .frame(width: 50, height: 50)
+                    .frame(width: 35, height: 35)
                     .overlay {
-                        FontIcon.text(.materialIcon(code: .arrow_upward), fontsize: 30, color: Color.background)
+                        FontIcon.text(.materialIcon(code: .arrow_upward), fontsize: 25, color: Color.background)
                     }
                 
                 // MARK: Income view
                 VStack(alignment: .leading , spacing: 5) {
-                    Text("Incomes")
-                        .frame(width: .infinity)
+                    let dataCredit = transactionListVM.incomeTotal(type: .credit);
+                                        
+                    Text("Credit")
                         .font(.subheadline)
                         .opacity(0.9)
-                    
-                    Text(incomeTotal, format: .currency(code: "USD"))
+                        
+                    Text(dataCredit, format: .currency(code: "USD"))
                         .bold()
                         .lineLimit(1)
-                        .font(.system(size: 24))
+                        .font(.system(size: 20))
                         .foregroundColor(Color.income)
                 }
             }
@@ -42,39 +45,49 @@ struct TransactionExpenses: View {
             Spacer();
             
             // MARK: Expenses
-            HStack(spacing: 10) {
+            HStack(spacing: 8) {
+                
                 // MARK: Expenses icon
                 RoundedRectangle(cornerRadius: 20, style: .continuous)
                     .fill(Color.expense)
-                    .frame(width: 50, height: 50)
+                    .frame(width: 35, height: 35)
                     .overlay {
-                        FontIcon.text(.materialIcon(code: .arrow_downward), fontsize: 30, color: Color.background)
+                        FontIcon.text(.materialIcon(code: .arrow_downward), fontsize: 25, color: Color.background)
                     }
                 
                 VStack(alignment: .leading, spacing: 5) {
+                    let dataDebit = transactionListVM.incomeTotal(type: .debit);
                     
                     // MARK: Expense view
-                    Text("Expenses")
-                        .frame(width: .infinity)
+                    Text("Debit")
                         .font(.subheadline)
                         .opacity(0.9)
                     
-                    Text(expenseTotal, format: .currency(code: "USD"))
+                    Text(dataDebit, format: .currency(code: "USD"))
                         .bold()
                         .lineLimit(1)
-                        .font(.system(size: 24))
+                        .font(.system(size: 20))
                         .foregroundColor(Color.expense)
                 }
             }
         }
-        .padding([.top, .bottom], 8)
+        .padding(.vertical, 8)
     }
 }
 
 struct TransactionExpanses_Previews: PreviewProvider {
+    static let transactionListVM: TransactionListViewModel = {
+        let transactionListVM = TransactionListViewModel();
+        transactionListVM.transactions = transactionListPreviewData;
+        return transactionListVM;
+    }()
+    
     static var previews: some View {
-        TransactionExpenses()
-        TransactionExpenses()
-            .preferredColorScheme(.dark)
+        Group {
+            TransactionExpenses()
+            TransactionExpenses()
+                .preferredColorScheme(.dark)
+        }
+        .environmentObject(transactionListVM);
     }
 }
