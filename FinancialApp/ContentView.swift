@@ -15,6 +15,8 @@ struct ContentView: View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading, spacing: 24){
+                    TransactionBalance();
+                    
                     // MARK: Title
                     Text("Overview")
                         .font(.title2)
@@ -43,9 +45,6 @@ struct ContentView: View {
                        .frame( height: 300 )
                     }
                     
-                    
-                    
-                   
                     // MARK: Transaction List
                     RecentTransactionList();
                 }
@@ -55,6 +54,7 @@ struct ContentView: View {
             .background(Color.background)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar{
+                
                 // MARK: Notification Item
                 ToolbarItem {
                     Image(systemName: "bell.badge")
