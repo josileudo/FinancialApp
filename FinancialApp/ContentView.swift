@@ -12,60 +12,72 @@ struct ContentView: View {
     @EnvironmentObject var transactionListVM: TransactionListViewModel
     
     var body: some View {
-        NavigationView {
-            ScrollView {
-                VStack(alignment: .leading, spacing: 24){
-                    TransactionBalance();
-                    
-                    // MARK: Title
-                    Text("Overview")
-                        .font(.title2)
-                        .bold()
-                    
-                    // MARK: Chart
-                    let data = transactionListVM.accomulateTransactions()
-                    if (!data.isEmpty) {
-                        let totalExpenses = data.last?.1 ?? 0;
-                        
-                        CardView {
-                            VStack (alignment: .leading) {
-                                ChartLabel((totalExpenses.formatted(.currency(code: "USD"))), type: .title)
-                                LineChart()
+        VStack {
+            ZStack {
+                NavigationView {
+                    ScrollView {
+                        VStack(alignment: .leading, spacing: 24) {
+                            // MARK: Title
+                            Text("Overview")
+                                .font(.title2)
+                                .bold()
+                            
+                            TransactionBalance();
+                           
+                            // MARK: Chart
+                            let data = transactionListVM.accomulateTransactions()
+                            if (!data.isEmpty) {
+                                let totalExpenses = data.last?.1 ?? 0;
+                                
+                                CardView {
+                                    VStack (alignment: .leading) {
+                                        ChartLabel((totalExpenses.formatted(.currency(code: "USD"))), type: .title)
+                                        LineChart()
+                                    }
+                                    .background(Color.systemBackground)
+                                }
+                                .data(data)
+                                .chartStyle(ChartStyle(
+                                     backgroundColor: Color.systemBackground,
+                                     foregroundColor: ColorGradient(
+                                         Color.icon.opacity(0.4),
+                                         Color.icon)
+                                     )
+                                )
+                               .frame( height: 300 )
                             }
-                            .background(Color.systemBackground)
+                            
+                            // MARK: Transaction List
+                            RecentTransactionList();
                         }
-                        .data(data)
-                        .chartStyle(ChartStyle(
-                             backgroundColor: Color.systemBackground,
-                             foregroundColor: ColorGradient(
-                                 Color.icon.opacity(0.4),
-                                 Color.icon)
-                             )
-                        )
-                       .frame( height: 300 )
+                        .padding()
+                        .frame(maxWidth: .infinity)
                     }
-                    
-                    // MARK: Transaction List
-                    RecentTransactionList();
+                    .background(Color.background)
+                    .navigationBarTitleDisplayMode(.inline)
+                    .toolbar{
+                        
+                        // MARK: Notification Item
+                        ToolbarItem {
+                            Image(systemName: "bell.badge")
+                                .symbolRenderingMode(.palette)
+                                .foregroundStyle(Color.icon, .primary)
+                        }
+                    }
                 }
-                .padding()
-                .frame(maxWidth: .infinity)
+                .navigationViewStyle(.stack)
+                .accentColor(.primary)
             }
-            .background(Color.background)
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar{
-                
-                // MARK: Notification Item
-                ToolbarItem {
-                    Image(systemName: "bell.badge")
-                        .symbolRenderingMode(.palette)
-                        .foregroundStyle(Color.icon, .primary)
-                }
-            }
+            
+            Spacer();
+            Divider();
+                        
+            // MARK: TabBar navigation
+            BottomNavbarItem();
         }
-        .navigationViewStyle(.stack)
-        .accentColor(.primary)
+        
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
