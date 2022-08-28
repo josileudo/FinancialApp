@@ -10,6 +10,7 @@ import SwiftUIFontIcon;
 
 struct BottomNavbarItem: View {
     @State var selectIndex = 0;
+    @Namespace var animation
     
     var icons : [String] = ["house", "list.bullet", "plus", "square.and.pencil", "ellipsis"]
     var body: some View {
@@ -18,44 +19,48 @@ struct BottomNavbarItem: View {
             ForEach(0..<5, id: \.self) { number in
                 Spacer()
                     Button(action: {
-                        selectIndex = number;
+                        withAnimation(.spring()) {
+                            selectIndex = number;
+                        }
+                        
                     }, label: {
-                        VStack{
-                            if( number == 2) {
+                        VStack(spacing: 6) {
+                            if(number == 2) {
                                 Image(systemName: icons[number])
                                     .font(.system(size: 25, weight: .bold, design: .default))
                                     .foregroundColor(Color.white)
                                     .frame(width: 60, height: 60)
                                     .background(Color.icon)
                                     .cornerRadius(50)
-                                    .shadow(color: Color.primary.opacity(0.4), radius: 10, x: 0, y: 5)
+                                    .shadow(color: Color.primary.opacity(0.4), radius: 10, x: 0, y: 2)
                                     .offset(y: -25)
                                 
                             } else {
-                                
                                 VStack(alignment: .center) {
                                     Image(systemName: icons[number])
-                                        .font(.system(size: 25, weight: .regular, design: .default))
+                                        .font(.system(size: 25))
+                                        .frame(width: 25, height: 25)
                                         .foregroundColor(selectIndex == number
                                                          ? Color.primary
                                                          : Color.primary.opacity(0.4))
                                         
                                     
                                     if(selectIndex == number) {
-                                    RoundedRectangle(cornerRadius: 50, style: .continuous)
-                                        .frame(width: 5, height: 5)
-                                        
+                                        Circle()
+                                            .fill(Color.icon)
+                                            .matchedGeometryEffect(id: "TAB", in: animation)
+                                            .frame(width: 8, height: 8)
                                     }
                                 }
-                                .frame(maxHeight: 30)
                                 
                             }
                         }
+                        .frame(maxWidth: .infinity, maxHeight: 30)
                     })
-                
                 Spacer()
             }
         }
+        .padding(.top)
     }
 }
 

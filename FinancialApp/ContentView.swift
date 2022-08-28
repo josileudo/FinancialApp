@@ -11,9 +11,13 @@ import SwiftUICharts;
 struct ContentView: View {
     @EnvironmentObject var transactionListVM: TransactionListViewModel
     
+    init() {
+        UITabBar.appearance().isHidden = true
+    }
+    
     var body: some View {
         VStack {
-            ZStack {
+            ZStack(alignment: .bottom) {
                 NavigationView {
                     ScrollView {
                         VStack(alignment: .leading, spacing: 24) {
@@ -67,16 +71,16 @@ struct ContentView: View {
                 }
                 .navigationViewStyle(.stack)
                 .accentColor(.primary)
+                Spacer()
             }
             
             Spacer();
-            Divider();
-                        
+
             // MARK: TabBar navigation
             BottomNavbarItem();
         }
-        
     }
+        
     
 }
 
