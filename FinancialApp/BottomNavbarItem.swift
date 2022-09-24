@@ -9,8 +9,8 @@ import SwiftUI;
 import SwiftUIFontIcon;
 
 struct BottomNavbarItem: View {
-    @State var selectIndex = 0;
-    @Namespace var animation
+    @Binding var selectIndex: Int;
+    @Namespace var animation;
     
     var icons : [String] = ["house", "list.bullet", "plus", "square.and.pencil", "ellipsis"]
     var body: some View {
@@ -52,7 +52,6 @@ struct BottomNavbarItem: View {
                                             .frame(width: 8, height: 8)
                                     }
                                 }
-                                
                             }
                         }
                         .frame(maxWidth: .infinity, maxHeight: 30)
@@ -65,10 +64,15 @@ struct BottomNavbarItem: View {
 }
 
 struct BottomNavbarItem_Previews: PreviewProvider {
+    static var selectedIndex: Int = {
+        let selectedIndex = selectedPreviewIndex;
+        return selectedIndex;
+    }()
+    
     static var previews: some View {
         Group {
-            BottomNavbarItem()
-            BottomNavbarItem()
+            BottomNavbarItem(selectIndex: .constant(selectedIndex))
+            BottomNavbarItem(selectIndex: .constant(selectedIndex))
                 .preferredColorScheme(.dark)
         }
     }

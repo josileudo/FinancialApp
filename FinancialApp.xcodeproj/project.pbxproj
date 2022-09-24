@@ -47,6 +47,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F1B38C028CFF7470074566F /* FinancialAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinancialAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F1B38C128CFF7470074566F /* FinancialAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinancialAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FC6A0F728C9282300783E24 /* FinancialApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinancialApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D20A7A7F28A6DB0F0084B931 /* TransactionExpenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionExpenses.swift; sourceTree = "<group>"; };
 		D23079C728B3A2B100A24D1D /* BottomNavbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomNavbarItem.swift; sourceTree = "<group>"; };
 		D247CF12289A9C2600C76FB6 /* RecentTransactionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTransactionList.swift; sourceTree = "<group>"; };
@@ -54,14 +57,11 @@
 		D2A83F3B289D9B200094EB52 /* TransactionsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsList.swift; sourceTree = "<group>"; };
 		D2B1BB7B28942B470053419C /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
 		D2B1BB7D289476700053419C /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
-		D2CFA1F02892C24600AE5981 /* FinancialApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinancialApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2CFA1F32892C24600AE5981 /* FinancialApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialApp.swift; sourceTree = "<group>"; };
 		D2CFA1F52892C24600AE5981 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D2CFA1F72892C24800AE5981 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2CFA1FA2892C24800AE5981 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		D2CFA2002892C24800AE5981 /* FinancialAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinancialAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2CFA2042892C24800AE5981 /* FinancialAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialAppTests.swift; sourceTree = "<group>"; };
-		D2CFA20A2892C24800AE5981 /* FinancialAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinancialAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2CFA20E2892C24800AE5981 /* FinancialAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialAppUITests.swift; sourceTree = "<group>"; };
 		D2CFA2102892C24800AE5981 /* FinancialAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D2CFA21D289323FA00AE5981 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -103,18 +103,10 @@
 				D2CFA1F22892C24600AE5981 /* FinancialApp */,
 				D2CFA2032892C24800AE5981 /* FinancialAppTests */,
 				D2CFA20D2892C24800AE5981 /* FinancialAppUITests */,
-				D2CFA1F12892C24600AE5981 /* Products */,
+				2FC6A0F728C9282300783E24 /* FinancialApp.app */,
+				2F1B38C028CFF7470074566F /* FinancialAppTests.xctest */,
+				2F1B38C128CFF7470074566F /* FinancialAppUITests.xctest */,
 			);
-			sourceTree = "<group>";
-		};
-		D2CFA1F12892C24600AE5981 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D2CFA1F02892C24600AE5981 /* FinancialApp.app */,
-				D2CFA2002892C24800AE5981 /* FinancialAppTests.xctest */,
-				D2CFA20A2892C24800AE5981 /* FinancialAppUITests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		D2CFA1F22892C24600AE5981 /* FinancialApp */ = {
@@ -185,7 +177,7 @@
 				D22F2340289EF32D00FFEC38 /* SwiftUICharts */,
 			);
 			productName = FinancialApp;
-			productReference = D2CFA1F02892C24600AE5981 /* FinancialApp.app */;
+			productReference = 2FC6A0F728C9282300783E24 /* FinancialApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D2CFA1FF2892C24800AE5981 /* FinancialAppTests */ = {
@@ -203,7 +195,7 @@
 			);
 			name = FinancialAppTests;
 			productName = FinancialAppTests;
-			productReference = D2CFA2002892C24800AE5981 /* FinancialAppTests.xctest */;
+			productReference = 2F1B38C028CFF7470074566F /* FinancialAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		D2CFA2092892C24800AE5981 /* FinancialAppUITests */ = {
@@ -221,7 +213,7 @@
 			);
 			name = FinancialAppUITests;
 			productName = FinancialAppUITests;
-			productReference = D2CFA20A2892C24800AE5981 /* FinancialAppUITests.xctest */;
+			productReference = 2F1B38C128CFF7470074566F /* FinancialAppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -261,7 +253,7 @@
 				D2A83F3D289DAAC50094EB52 /* XCRemoteSwiftPackageReference "swift-collections" */,
 				D22F233F289EF32D00FFEC38 /* XCRemoteSwiftPackageReference "ChartView" */,
 			);
-			productRefGroup = D2CFA1F12892C24600AE5981 /* Products */;
+			productRefGroup = D2CFA1E72892C24600AE5981;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (

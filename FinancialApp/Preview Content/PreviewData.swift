@@ -25,3 +25,4 @@ var transactionPreviewData = Transaction(
 );
 
 var transactionListPreviewData = [Transaction](repeating: transactionPreviewData, count: 10);
+var selectedPreviewIndex: Int = 0;
