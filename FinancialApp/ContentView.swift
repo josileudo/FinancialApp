@@ -9,7 +9,8 @@ import SwiftUI;
 import SwiftUICharts;
 
 struct ContentView: View {
-    @EnvironmentObject var transactionListVM: TransactionListViewModel
+    @EnvironmentObject var transactionListVM: TransactionListViewModel;
+    @State var selectIndex: Int = selectedPreviewIndex;
     
     init() {
         UITabBar.appearance().isHidden = true
@@ -18,73 +19,94 @@ struct ContentView: View {
     var body: some View {
         VStack {
             ZStack(alignment: .bottom) {
-                NavigationView {
-                    ScrollView {
-                        VStack(alignment: .leading, spacing: 24) {
-                            // MARK: Title
-                            Text("Overview")
-                                .font(.title2)
-                                .bold()
-                            
-                            TransactionBalance();
-                           
-                            // MARK: Chart
-                            let data = transactionListVM.accomulateTransactions()
-                            if (!data.isEmpty) {
-                                let totalExpenses = data.last?.1 ?? 0;
+                // MARK: Navigator pages
+                switch selectIndex {
+                case 0:
+                    NavigationView {
+                        ScrollView {
+                            VStack(alignment: .leading, spacing: 24) {
+                                // MARK: Title
+                                Text("Overview")
+                                    .font(.title2)
+                                    .bold()
                                 
-                                CardView {
-                                    VStack (alignment: .leading) {
-                                        ChartLabel((totalExpenses.formatted(.currency(code: "USD"))), type: .title)
-                                        LineChart()
+                                TransactionBalance();
+                                
+                                // MARK: Chart
+                                let data = transactionListVM.accomulateTransactions()
+                                if (!data.isEmpty) {
+                                    let totalExpenses = data.last?.1 ?? 0;
+                                    
+                                    CardView {
+                                        VStack (alignment: .leading) {
+                                            ChartLabel((totalExpenses.formatted(.currency(code: "USD"))), type: .title)
+                                            LineChart()
+                                        }
+                                        .background(Color.systemBackground)
                                     }
-                                    .background(Color.systemBackground)
+                                    .data(data)
+                                    .chartStyle(ChartStyle(
+                                        backgroundColor: Color.systemBackground,
+                                        foregroundColor: ColorGradient(
+                                            Color.icon.opacity(0.4),
+                                            Color.icon)
+                                    )
+                                    )
+                                    .frame( height: 300 )
                                 }
-                                .data(data)
-                                .chartStyle(ChartStyle(
-                                     backgroundColor: Color.systemBackground,
-                                     foregroundColor: ColorGradient(
-                                         Color.icon.opacity(0.4),
-                                         Color.icon)
-                                     )
-                                )
-                               .frame( height: 300 )
+                                
+                                // MARK: Transaction List
+                                RecentTransactionList();
                             }
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                        }
+                        .background(Color.background)
+                        .navigationBarTitleDisplayMode(.inline)
+                        .toolbar{
                             
-                            // MARK: Transaction List
-                            RecentTransactionList();
+                            // MARK: Notification Item
+                            ToolbarItem {
+                                Image(systemName: "bell.badge")
+                                    .symbolRenderingMode(.palette)
+                                    .foregroundStyle(Color.icon, .primary)
+                            }
                         }
-                        .padding()
-                        .frame(maxWidth: .infinity)
                     }
-                    .background(Color.background)
-                    .navigationBarTitleDisplayMode(.inline)
-                    .toolbar{
-                        
-                        // MARK: Notification Item
-                        ToolbarItem {
-                            Image(systemName: "bell.badge")
-                                .symbolRenderingMode(.palette)
-                                .foregroundStyle(Color.icon, .primary)
-                        }
+                    .navigationViewStyle(.stack)
+                    .accentColor(.primary)
+                    
+                case 1:
+                    NavigationView {
+                        Text("Screen 2")
+                    }
+                case 2:
+                    NavigationView {
+                        Text("Modal Screen")
+                    }
+                case 3:
+                    NavigationView {
+                        Text("Screen 4")
+                    }
+                default:
+                    NavigationView {
+                        Text("Screen 5")
                     }
                 }
-                .navigationViewStyle(.stack)
-                .accentColor(.primary)
+                
                 Spacer()
             }
             
             Spacer();
-
+            
             // MARK: TabBar navigation
-            BottomNavbarItem();
+            BottomNavbarItem(selectIndex: $selectIndex);
         }
     }
-        
-    
 }
 
 struct ContentView_Previews: PreviewProvider {
+    
     static let transactionListVM: TransactionListViewModel = {
         let transactionListVM = TransactionListViewModel();
         transactionListVM.transactions = transactionListPreviewData;
