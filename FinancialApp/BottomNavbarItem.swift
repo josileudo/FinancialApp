@@ -10,6 +10,8 @@ import SwiftUIFontIcon;
 
 struct BottomNavbarItem: View {
     @Binding var selectIndex: Int;
+    @Binding var shouldShowModal: Bool;
+    
     @Namespace var animation;
     
     var icons : [String] = ["house", "list.bullet", "plus", "square.and.pencil", "ellipsis"]
@@ -19,6 +21,11 @@ struct BottomNavbarItem: View {
             ForEach(0..<5, id: \.self) { number in
                 Spacer()
                     Button(action: {
+                        if (number == 2) {
+                            shouldShowModal.toggle();
+                            return;
+                        }
+                        
                         withAnimation(.spring()) {
                             selectIndex = number;
                         }
@@ -71,8 +78,8 @@ struct BottomNavbarItem_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            BottomNavbarItem(selectIndex: .constant(selectedIndex))
-            BottomNavbarItem(selectIndex: .constant(selectedIndex))
+            BottomNavbarItem(selectIndex: .constant(selectedIndex), shouldShowModal: .constant(false))
+            BottomNavbarItem(selectIndex: .constant(selectedIndex), shouldShowModal: .constant(false))
                 .preferredColorScheme(.dark)
         }
     }

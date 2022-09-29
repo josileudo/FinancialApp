@@ -10,15 +10,20 @@ import SwiftUICharts;
 
 struct ContentView: View {
     @EnvironmentObject var transactionListVM: TransactionListViewModel;
+    
     @State var selectIndex: Int = selectedPreviewIndex;
+    @State var shouldShowModal: Bool = false;
     
     init() {
         UITabBar.appearance().isHidden = true
     }
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             ZStack(alignment: .bottom) {
+                // MARK: Modal view
+                TransactionModal(isPresented: $shouldShowModal);
+                
                 // MARK: Navigator pages
                 switch selectIndex {
                 case 0:
@@ -80,27 +85,24 @@ struct ContentView: View {
                     NavigationView {
                         Text("Screen 2")
                     }
-                case 2:
-                    NavigationView {
-                        Text("Modal Screen")
-                    }
+                                     
                 case 3:
                     NavigationView {
                         Text("Screen 4")
                     }
+                    
                 default:
-                    NavigationView {
-                        Text("Screen 5")
+                    ScrollView {
+                        Text("Remember of create other screen");
                     }
                 }
                 
-                Spacer()
+                Spacer();
+                
             }
             
-            Spacer();
-            
             // MARK: TabBar navigation
-            BottomNavbarItem(selectIndex: $selectIndex);
+            BottomNavbarItem(selectIndex: $selectIndex, shouldShowModal: self.$shouldShowModal);
         }
     }
 }

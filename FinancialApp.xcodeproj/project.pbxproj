@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D20A343328E4868800409FFE /* TransactionModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20A343228E4868800409FFE /* TransactionModal.swift */; };
 		D20A7A8028A6DB0F0084B931 /* TransactionExpenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20A7A7F28A6DB0F0084B931 /* TransactionExpenses.swift */; };
 		D22F2341289EF32D00FFEC38 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = D22F2340289EF32D00FFEC38 /* SwiftUICharts */; };
 		D23079C828B3A2B100A24D1D /* BottomNavbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23079C728B3A2B100A24D1D /* BottomNavbarItem.swift */; };
@@ -50,6 +51,7 @@
 		2F1B38C028CFF7470074566F /* FinancialAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinancialAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F1B38C128CFF7470074566F /* FinancialAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinancialAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FC6A0F728C9282300783E24 /* FinancialApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinancialApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D20A343228E4868800409FFE /* TransactionModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModal.swift; sourceTree = "<group>"; };
 		D20A7A7F28A6DB0F0084B931 /* TransactionExpenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionExpenses.swift; sourceTree = "<group>"; };
 		D23079C728B3A2B100A24D1D /* BottomNavbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomNavbarItem.swift; sourceTree = "<group>"; };
 		D247CF12289A9C2600C76FB6 /* RecentTransactionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTransactionList.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				D2DF62E728A40257004336D6 /* TransactionBalance.swift */,
 				D20A7A7F28A6DB0F0084B931 /* TransactionExpenses.swift */,
 				D23079C728B3A2B100A24D1D /* BottomNavbarItem.swift */,
+				D20A343228E4868800409FFE /* TransactionModal.swift */,
 				D2CFA1F72892C24800AE5981 /* Assets.xcassets */,
 				D2CFA1F92892C24800AE5981 /* Preview Content */,
 			);
@@ -305,6 +308,7 @@
 				D2CFA21E289323FA00AE5981 /* Extensions.swift in Sources */,
 				D2DF62E828A40257004336D6 /* TransactionBalance.swift in Sources */,
 				D2D63FCB28994EFE00D9D3D3 /* TransactionListViewModel.swift in Sources */,
+				D20A343328E4868800409FFE /* TransactionModal.swift in Sources */,
 				D2CFA1F42892C24600AE5981 /* FinancialApp.swift in Sources */,
 				D23079C828B3A2B100A24D1D /* BottomNavbarItem.swift in Sources */,
 			);
