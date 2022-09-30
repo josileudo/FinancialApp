@@ -22,31 +22,8 @@ struct ContentView: View {
                 // MARK: Modal view
                 TransactionModal(isPresented: $shouldShowModal);
                 
-                // MARK: Navigator pages
-                switch selectIndex {
-                case 0:
-                    NavigationView {
-                        HomePageView();
-                    }
-                    .navigationViewStyle(.stack)
-                    .accentColor(.primary)
-                    
-                case 1:
-                    NavigationView {
-                        Text("Screen 2")
-                    }
-                                     
-                case 3:
-                    NavigationView {
-                        Text("Screen 4")
-                    }
-                    
-                default:
-                    ScrollView {
-                        Text("Remember of create other screen");
-                    }
-                }
-                
+                //MARK: Route pages
+                RoutePages(selectIndex: $selectIndex);
                 Spacer();
             }
             
