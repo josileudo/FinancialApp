@@ -9,11 +9,9 @@ import SwiftUI;
 import SwiftUICharts;
 
 struct ContentView: View {
-    @EnvironmentObject var transactionListVM: TransactionListViewModel;
-    
     @State var selectIndex: Int = selectedPreviewIndex;
     @State var shouldShowModal: Bool = false;
-    
+        
     init() {
         UITabBar.appearance().isHidden = true
     }
@@ -50,7 +48,6 @@ struct ContentView: View {
                 }
                 
                 Spacer();
-                
             }
             
             // MARK: TabBar navigation
@@ -60,19 +57,17 @@ struct ContentView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
-    
     static let transactionListVM: TransactionListViewModel = {
         let transactionListVM = TransactionListViewModel();
         transactionListVM.transactions = transactionListPreviewData;
         return transactionListVM;
     }()
-    
     static var previews: some View {
         Group {
             ContentView()
             ContentView()
                 .preferredColorScheme(.dark)
         }
-        .environmentObject(transactionListVM);
+        .environmentObject(transactionListVM)
     }
 }
