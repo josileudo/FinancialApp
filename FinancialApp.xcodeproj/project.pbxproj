@@ -29,6 +29,7 @@
 		D2CFA21E289323FA00AE5981 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CFA21D289323FA00AE5981 /* Extensions.swift */; };
 		D2D63FCB28994EFE00D9D3D3 /* TransactionListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D63FCA28994EFE00D9D3D3 /* TransactionListViewModel.swift */; };
 		D2DF62E828A40257004336D6 /* TransactionBalance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF62E728A40257004336D6 /* TransactionBalance.swift */; };
+		D2EAE3B628E76B0900E89B1B /* RoutePages.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EAE3B528E76B0900E89B1B /* RoutePages.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		D2CFA21D289323FA00AE5981 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D2D63FCA28994EFE00D9D3D3 /* TransactionListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListViewModel.swift; sourceTree = "<group>"; };
 		D2DF62E728A40257004336D6 /* TransactionBalance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionBalance.swift; sourceTree = "<group>"; };
+		D2EAE3B528E76B0900E89B1B /* RoutePages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutePages.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 				D23079C728B3A2B100A24D1D /* BottomNavbarItem.swift */,
 				D20A343228E4868800409FFE /* TransactionModal.swift */,
 				D287168E28E7645900ABE32F /* HomePageView.swift */,
+				D2EAE3B528E76B0900E89B1B /* RoutePages.swift */,
 				D2CFA1F72892C24800AE5981 /* Assets.xcassets */,
 				D2CFA1F92892C24800AE5981 /* Preview Content */,
 			);
@@ -308,6 +311,7 @@
 				D2B1BB7C28942B470053419C /* TransactionModel.swift in Sources */,
 				D2CFA1F62892C24600AE5981 /* ContentView.swift in Sources */,
 				D2A03FD62897F35400EE2067 /* TransactionRow.swift in Sources */,
+				D2EAE3B628E76B0900E89B1B /* RoutePages.swift in Sources */,
 				D2CFA21E289323FA00AE5981 /* Extensions.swift in Sources */,
 				D2DF62E828A40257004336D6 /* TransactionBalance.swift in Sources */,
 				D2D63FCB28994EFE00D9D3D3 /* TransactionListViewModel.swift in Sources */,
