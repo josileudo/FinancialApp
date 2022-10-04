@@ -14,6 +14,11 @@ struct BottomNavbarItem: View {
     
     @Namespace var animation;
     
+    // TODO: Create a object structure to this icons;
+//    var iconsTest: Array<> = [
+//        {idValue: 1, nameRoute: "home", iconName: "house"}
+//    ]
+    
     var icons : [String] = ["house", "list.bullet", "plus", "square.and.pencil", "ellipsis"]
     var body: some View {
         HStack {
@@ -32,14 +37,14 @@ struct BottomNavbarItem: View {
                 }, label: {
                     VStack(spacing: 6) {
                         if(number == 2) {
-                            Image(systemName: icons[number])
-                                .font(.system(size: 25, weight: .bold, design: .default))
-                                .foregroundColor(Color.white)
-                                .frame(width: 60, height: 60)
-                                .background(Color.icon)
-                                .cornerRadius(50)
-                                .shadow(color: Color.primary.opacity(0.4), radius: 10, x: 0, y: 2)
-                                .offset(y: -25)
+                                Image(systemName: icons[number])
+                                    .font(.system(size: 25, weight: .bold, design: .default))
+                                    .foregroundColor(Color.white)
+                                    .frame(width: 60, height: 60)
+                                    .background(Color.icon)
+                                    .cornerRadius(50)
+                                    .shadow(color: Color.primary.opacity(0.4), radius: 10, x: 0, y: 2)
+                                    .offset(y: -26)
                             
                         } else {
                             VStack(alignment: .center) {
