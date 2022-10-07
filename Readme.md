@@ -15,7 +15,7 @@ This project is an app to manage your finances. You will be able to view your de
 ## Tools
 * Swift 5
 
-## Libary
+## Library
 * SwiftUiCharts;
 * Swift-collections;
 * SwiftUiFontIcon.
