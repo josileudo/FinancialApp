@@ -103,6 +103,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D23CF4C8292FED19002DD8CA /* views */ = {
+			isa = PBXGroup;
+			children = (
+				D2A03FD52897F35400EE2067 /* TransactionRow.swift */,
+				D2CFA1F52892C24600AE5981 /* ContentView.swift */,
+				D247CF12289A9C2600C76FB6 /* RecentTransactionList.swift */,
+				D2A83F3B289D9B200094EB52 /* TransactionsList.swift */,
+				D2DF62E728A40257004336D6 /* TransactionBalance.swift */,
+				D23079C728B3A2B100A24D1D /* BottomNavbarItem.swift */,
+				D20A7A7F28A6DB0F0084B931 /* TransactionExpenses.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		D23CF4C9292FEE63002DD8CA /* models */ = {
+			isa = PBXGroup;
+			children = (
+				D2D63FCA28994EFE00D9D3D3 /* TransactionListViewModel.swift */,
+				D2B1BB7B28942B470053419C /* TransactionModel.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
 		D2CFA1E72892C24600AE5981 = {
 			isa = PBXGroup;
 			children = (
@@ -118,21 +141,14 @@
 		D2CFA1F22892C24600AE5981 /* FinancialApp */ = {
 			isa = PBXGroup;
 			children = (
+				D2CFA1F72892C24800AE5981 /* Assets.xcassets */,
+				D23CF4C9292FEE63002DD8CA /* models */,
+				D23CF4C8292FED19002DD8CA /* views */,
 				D2CFA1F32892C24600AE5981 /* FinancialApp.swift */,
-				D2CFA1F52892C24600AE5981 /* ContentView.swift */,
-				D2A03FD52897F35400EE2067 /* TransactionRow.swift */,
-				D2D63FCA28994EFE00D9D3D3 /* TransactionListViewModel.swift */,
-				D2B1BB7B28942B470053419C /* TransactionModel.swift */,
 				D2CFA21D289323FA00AE5981 /* Extensions.swift */,
-				D247CF12289A9C2600C76FB6 /* RecentTransactionList.swift */,
-				D2A83F3B289D9B200094EB52 /* TransactionsList.swift */,
-				D2DF62E728A40257004336D6 /* TransactionBalance.swift */,
-				D20A7A7F28A6DB0F0084B931 /* TransactionExpenses.swift */,
-				D23079C728B3A2B100A24D1D /* BottomNavbarItem.swift */,
 				D20A343228E4868800409FFE /* TransactionModal.swift */,
 				D287168E28E7645900ABE32F /* HomePageView.swift */,
 				D2EAE3B528E76B0900E89B1B /* RoutePages.swift */,
-				D2CFA1F72892C24800AE5981 /* Assets.xcassets */,
 				D2CFA1F92892C24800AE5981 /* Preview Content */,
 			);
 			path = FinancialApp;
