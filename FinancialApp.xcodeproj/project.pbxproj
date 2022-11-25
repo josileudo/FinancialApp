@@ -103,9 +103,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D2180D33293171650024F4BE /* routes */ = {
+			isa = PBXGroup;
+			children = (
+				D2EAE3B528E76B0900E89B1B /* RoutePages.swift */,
+			);
+			path = routes;
+			sourceTree = "<group>";
+		};
+		D2180D34293171A40024F4BE /* stores */ = {
+			isa = PBXGroup;
+			children = (
+				D2CFA21D289323FA00AE5981 /* Extensions.swift */,
+			);
+			path = stores;
+			sourceTree = "<group>";
+		};
 		D23CF4C8292FED19002DD8CA /* views */ = {
 			isa = PBXGroup;
 			children = (
+				D20A343228E4868800409FFE /* TransactionModal.swift */,
+				D287168E28E7645900ABE32F /* HomePageView.swift */,
 				D2A03FD52897F35400EE2067 /* TransactionRow.swift */,
 				D247CF12289A9C2600C76FB6 /* RecentTransactionList.swift */,
 				D2A83F3B289D9B200094EB52 /* TransactionsList.swift */,
@@ -141,13 +159,11 @@
 			isa = PBXGroup;
 			children = (
 				D2CFA1F72892C24800AE5981 /* Assets.xcassets */,
+				D2180D34293171A40024F4BE /* stores */,
+				D2180D33293171650024F4BE /* routes */,
 				D23CF4C9292FEE63002DD8CA /* models */,
 				D23CF4C8292FED19002DD8CA /* views */,
 				D2CFA1F32892C24600AE5981 /* FinancialApp.swift */,
-				D2CFA21D289323FA00AE5981 /* Extensions.swift */,
-				D20A343228E4868800409FFE /* TransactionModal.swift */,
-				D287168E28E7645900ABE32F /* HomePageView.swift */,
-				D2EAE3B528E76B0900E89B1B /* RoutePages.swift */,
 				D2CFA1F52892C24600AE5981 /* ContentView.swift */,
 				D2CFA1F92892C24800AE5981 /* Preview Content */,
 			);
