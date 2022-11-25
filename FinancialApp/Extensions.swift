@@ -14,7 +14,7 @@ extension Color {
     static let text = Color("Text");
     static let systemBackground = Color(uiColor: .systemBackground);
     static let income = Color("Income");
-    static let expense = Color("Expense");
+    static let expense = Color("expense");
 }
 
 extension DateFormatter {

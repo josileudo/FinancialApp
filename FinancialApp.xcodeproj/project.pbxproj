@@ -107,7 +107,6 @@
 			isa = PBXGroup;
 			children = (
 				D2A03FD52897F35400EE2067 /* TransactionRow.swift */,
-				D2CFA1F52892C24600AE5981 /* ContentView.swift */,
 				D247CF12289A9C2600C76FB6 /* RecentTransactionList.swift */,
 				D2A83F3B289D9B200094EB52 /* TransactionsList.swift */,
 				D2DF62E728A40257004336D6 /* TransactionBalance.swift */,
@@ -149,6 +148,7 @@
 				D20A343228E4868800409FFE /* TransactionModal.swift */,
 				D287168E28E7645900ABE32F /* HomePageView.swift */,
 				D2EAE3B528E76B0900E89B1B /* RoutePages.swift */,
+				D2CFA1F52892C24600AE5981 /* ContentView.swift */,
 				D2CFA1F92892C24800AE5981 /* Preview Content */,
 			);
 			path = FinancialApp;
