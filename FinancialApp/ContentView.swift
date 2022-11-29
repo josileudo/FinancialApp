@@ -19,9 +19,7 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 0) {
             ZStack(alignment: .bottom) {
-                // MARK: Modal view
-                TransactionModal(isPresented: $shouldShowModal);
-                
+                               
                 //MARK: Route pages
                 RoutePages(selectIndex: $selectIndex);
                 Spacer();

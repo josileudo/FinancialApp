@@ -22,7 +22,7 @@ struct BottomNavbarItem: View {
                 Button(action: {
                     if (number == 2) {
                         shouldShowModal.toggle();
-                        return;
+                        return
                     }
                     
                     withAnimation(.spring()) {
@@ -62,9 +62,12 @@ struct BottomNavbarItem: View {
                     }
                     .frame(maxWidth: .infinity, maxHeight: 30)
                 })
-                Spacer()
+                .fullScreenCover(isPresented: $shouldShowModal ){
+                    TransactionModal(isPresented: $shouldShowModal)
+                }
             }
-        }.padding(.top)
+        }
+        .padding(.top)
     }
 }
 
