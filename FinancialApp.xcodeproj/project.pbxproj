@@ -13,6 +13,7 @@
 		D23079C828B3A2B100A24D1D /* BottomNavbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23079C728B3A2B100A24D1D /* BottomNavbarItem.swift */; };
 		D247CF13289A9C2600C76FB6 /* RecentTransactionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D247CF12289A9C2600C76FB6 /* RecentTransactionList.swift */; };
 		D287168F28E7645900ABE32F /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287168E28E7645900ABE32F /* HomePageView.swift */; };
+		D294E3B72936DDF50083DC05 /* CustomCornerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D294E3B62936DDF50083DC05 /* CustomCornerModel.swift */; };
 		D2A03FD62897F35400EE2067 /* TransactionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A03FD52897F35400EE2067 /* TransactionRow.swift */; };
 		D2A03FD928984C5100EE2067 /* SwiftUIFontIcon in Frameworks */ = {isa = PBXBuildFile; productRef = D2A03FD828984C5100EE2067 /* SwiftUIFontIcon */; };
 		D2A83F3C289D9B200094EB52 /* TransactionsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A83F3B289D9B200094EB52 /* TransactionsList.swift */; };
@@ -58,6 +59,7 @@
 		D23079C728B3A2B100A24D1D /* BottomNavbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomNavbarItem.swift; sourceTree = "<group>"; };
 		D247CF12289A9C2600C76FB6 /* RecentTransactionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTransactionList.swift; sourceTree = "<group>"; };
 		D287168E28E7645900ABE32F /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
+		D294E3B62936DDF50083DC05 /* CustomCornerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCornerModel.swift; sourceTree = "<group>"; };
 		D2A03FD52897F35400EE2067 /* TransactionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRow.swift; sourceTree = "<group>"; };
 		D2A83F3B289D9B200094EB52 /* TransactionsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsList.swift; sourceTree = "<group>"; };
 		D2B1BB7B28942B470053419C /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			children = (
 				D2D63FCA28994EFE00D9D3D3 /* TransactionListViewModel.swift */,
 				D2B1BB7B28942B470053419C /* TransactionModel.swift */,
+				D294E3B62936DDF50083DC05 /* CustomCornerModel.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				D2B1BB7C28942B470053419C /* TransactionModel.swift in Sources */,
 				D2CFA1F62892C24600AE5981 /* ContentView.swift in Sources */,
 				D2A03FD62897F35400EE2067 /* TransactionRow.swift in Sources */,
+				D294E3B72936DDF50083DC05 /* CustomCornerModel.swift in Sources */,
 				D2EAE3B628E76B0900E89B1B /* RoutePages.swift in Sources */,
 				D2CFA21E289323FA00AE5981 /* Extensions.swift in Sources */,
 				D2DF62E828A40257004336D6 /* TransactionBalance.swift in Sources */,
