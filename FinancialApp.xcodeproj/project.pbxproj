@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F43CE922938E654006BE2EC /* DropDownMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F43CE912938E654006BE2EC /* DropDownMenuView.swift */; };
 		D20A343328E4868800409FFE /* TransactionModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20A343228E4868800409FFE /* TransactionModal.swift */; };
 		D20A7A8028A6DB0F0084B931 /* TransactionExpenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20A7A7F28A6DB0F0084B931 /* TransactionExpenses.swift */; };
 		D22F2341289EF32D00FFEC38 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = D22F2340289EF32D00FFEC38 /* SwiftUICharts */; };
@@ -53,6 +54,7 @@
 /* Begin PBXFileReference section */
 		2F1B38C028CFF7470074566F /* FinancialAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinancialAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F1B38C128CFF7470074566F /* FinancialAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinancialAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F43CE912938E654006BE2EC /* DropDownMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenuView.swift; sourceTree = "<group>"; };
 		2FC6A0F728C9282300783E24 /* FinancialApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinancialApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D20A343228E4868800409FFE /* TransactionModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModal.swift; sourceTree = "<group>"; };
 		D20A7A7F28A6DB0F0084B931 /* TransactionExpenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionExpenses.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				D2DF62E728A40257004336D6 /* TransactionBalance.swift */,
 				D23079C728B3A2B100A24D1D /* BottomNavbarItem.swift */,
 				D20A7A7F28A6DB0F0084B931 /* TransactionExpenses.swift */,
+				2F43CE912938E654006BE2EC /* DropDownMenuView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				D247CF13289A9C2600C76FB6 /* RecentTransactionList.swift in Sources */,
 				D2A83F3C289D9B200094EB52 /* TransactionsList.swift in Sources */,
 				D20A7A8028A6DB0F0084B931 /* TransactionExpenses.swift in Sources */,
+				2F43CE922938E654006BE2EC /* DropDownMenuView.swift in Sources */,
 				D2B1BB7C28942B470053419C /* TransactionModel.swift in Sources */,
 				D2CFA1F62892C24600AE5981 /* ContentView.swift in Sources */,
 				D2A03FD62897F35400EE2067 /* TransactionRow.swift in Sources */,
