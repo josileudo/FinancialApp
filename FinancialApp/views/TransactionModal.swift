@@ -12,14 +12,60 @@ struct TransactionModal: View {
     @State private var value: String = "R$ 0,00";
     
     var body: some View {
-        VStack(){
-
+        GeometryReader {_ in
+            
+            VStack() {
+                HStack() {
+                    VStack(alignment: .leading) {
+                        
+                        Button(action: {
+                            isPresented.toggle()
+                        }, label: {
+                            
+                            Text("Cancel")
+                                .font(.system(size: 20))
+                            
+                            Spacer()
+                        })
+                    }
+                }
+                .frame(maxWidth: .infinity)
+                .foregroundColor(Color.white)
+                .padding([.leading, .trailing])
+                
+                
+                VStack(alignment: .leading ) {
+                    Text("Digite sua Receita")
+                        .font(.system(size: 14, weight: .semibold))
+                    
+                    TextField("R$ 0,00", text: $value)
+                        .font(.system(size: 40))
+                }
+                .frame(maxWidth: .infinity)
+                .foregroundColor(Color.white)
+                .padding()
+                
+                VStack() {
+                    Text("Screen 2")
+                }
+                .padding(15)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+                .background(content: {
+                    CustomCornerModel(corners: [.topLeft, .topRight], radius: 25)
+                        .fill(.white)
+                        .ignoresSafeArea()
+                })
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            //.padding([.leading, .trailing])
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.headerIncomeColor)
-        .onTapGesture {
-            isPresented.toggle()
-        }
+        .background (content: {
+            Rectangle()
+                .fill(Color.headerIncomeColor)
+                .ignoresSafeArea()
+        })
+        
     }
 }
 
