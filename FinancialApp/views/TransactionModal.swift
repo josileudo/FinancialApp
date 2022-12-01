@@ -10,6 +10,7 @@ import SwiftUI
 struct TransactionModal: View {
     @Binding var isPresented: Bool;
     @State private var value: String = "R$ 0,00";
+    @State private var menu: String = ""
     
     var body: some View {
         GeometryReader {_ in
@@ -25,9 +26,13 @@ struct TransactionModal: View {
                             Text("Cancel")
                                 .font(.system(size: 20))
                             
-                            Spacer()
                         })
+                        
                     }
+                    Spacer()
+                    DropDownMenuView()
+                        .frame(maxWidth: .infinity)
+                    Spacer()
                 }
                 .frame(maxWidth: .infinity)
                 .foregroundColor(Color.white)
@@ -62,7 +67,7 @@ struct TransactionModal: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background (content: {
             Rectangle()
-                .fill(Color.headerIncomeColor)
+                .fill(menu == "receita" ? Color.headerIncomeColor : Color.expense)
                 .ignoresSafeArea()
         })
         
