@@ -12,32 +12,32 @@ struct TransactionModal: View {
     @State private var value: String = "R$ 0,00";
     @State private var menu: String = ""
     
+    
     var body: some View {
+        let columns = Array(
+            repeating: GridItem(.flexible(), spacing: 0), count: 3
+        )
+        
         GeometryReader {_ in
             
             VStack() {
-                HStack() {
+                LazyVGrid(columns: columns, alignment: .leading){
                     VStack(alignment: .leading) {
-                        
+                    
                         Button(action: {
                             isPresented.toggle()
                         }, label: {
-                            
                             Text("Cancel")
                                 .font(.system(size: 20))
-                            
                         })
-                        
                     }
-                    Spacer()
+                    
+                    //MARK: Drop-down list 
                     DropDownMenuView()
-                        .frame(maxWidth: .infinity)
-                    Spacer()
                 }
                 .frame(maxWidth: .infinity)
                 .foregroundColor(Color.white)
                 .padding([.leading, .trailing])
-                
                 
                 VStack(alignment: .leading ) {
                     Text("Digite sua Receita")
