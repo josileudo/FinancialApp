@@ -12,21 +12,37 @@ struct DropDownMenuView: View {
     
     var body: some View {
         VStack() {
-            HStack() {
-                Text("Receita")
+            VStack(alignment: .leading, spacing: 12){
+                HStack() {
+                    Text("Receita")
+                        .font(.system(size: 18, weight: .bold))
+                    
+                    Image(systemName: expand
+                          ? "chevron.up"
+                          : "chevron.down"
+                    )
+                    .resizable()
+                    .frame(width: 13, height: 6)
                 
-                Image(systemName: expand
-                      ? "chevron.up"
-                      : "chevron.down"
-                )
-                .resizable()
-                .frame(width: 13, height: 6)
-            
+                }
+                .onTapGesture {
+                    withAnimation(.spring()) {
+                        self.expand.toggle()
+                    }
+                }
                 
-            }
-            .onTapGesture {
-                withAnimation(.spring()) {
-                    self.expand.toggle()
+                if expand {
+                    Button(action: {
+                        
+                    }, label: {
+                        Text("Receitas")
+                    })
+                    
+                    Button(action: {
+                        
+                    }, label: {
+                        Text("Despesas")
+                    })
                 }
             }
             .padding([.leading, .trailing], 15)
@@ -42,6 +58,7 @@ struct DropDownMenuView: View {
             })
             .foregroundColor(Color.white)
             .font(.system(size: 18, weight: .bold))
+            .zIndex(1)
         }
     }
 }

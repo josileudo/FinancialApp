@@ -39,6 +39,7 @@ struct TransactionModal: View {
                 .foregroundColor(Color.white)
                 .padding([.leading, .trailing])
                 
+                
                 VStack(alignment: .leading ) {
                     Text("Digite sua Receita")
                         .font(.system(size: 14, weight: .semibold))
@@ -70,6 +71,7 @@ struct TransactionModal: View {
                 .fill(menu == "receita" ? Color.headerIncomeColor : Color.expense)
                 .ignoresSafeArea()
         })
+        .zIndex(0)
         
     }
 }
