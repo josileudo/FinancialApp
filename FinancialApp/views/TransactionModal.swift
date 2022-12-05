@@ -58,7 +58,6 @@ struct TransactionModal: View {
                     
                     VStack(alignment: .leading, spacing: 12){
                         
-                        
                         // MARK: Toggle button
                         Toggle(isOn: $toggleSwitch) {
                             HStack(){
@@ -114,14 +113,13 @@ struct TransactionModal: View {
                         
                     }, label: {
                         Text("Salvar")
+                            .frame(maxWidth: .infinity)
+                            .foregroundColor(Color.white)
+                            .font(.system(size: 18, weight: .bold))
+                            
                     })
-                    .padding()
-                    .background(Color.expense)
-                    .foregroundColor(Color.white)
-                    .font(.system(size: 18, weight: .bold))
-                    .cornerRadius(10)
-                   // .scaleEffect(configuration.isPressed ? 1.2 : 1)
-                                        
+                    .buttonStyle(PresseableButtonStyle())
+                        
                 }
                 .padding(15)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
@@ -142,6 +140,18 @@ struct TransactionModal: View {
         })
         .zIndex(0)
         
+    }
+}
+
+struct PresseableButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .padding(12)
+            .background(Color.expense)
+            .cornerRadius(30)
+            .brightness(configuration.isPressed ? 0.1 : 0)
+            .scaleEffect(configuration.isPressed ? 1.02 : 1)
+            .shadow(color: Color.black.opacity(0.3), radius: 30, x: 0, y: 2)
     }
 }
 
