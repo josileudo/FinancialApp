@@ -61,12 +61,14 @@ struct TransactionModal: View {
                         
                         // MARK: Toggle button
                         Toggle(isOn: $toggleSwitch) {
-                            Image(systemName: "checkmark.circle")
-                                .font(.system(size: 22))
-                                .padding(.trailing, 6)
-                            
-                            Text("Recebido")
-                                .font(.system(size: 18))
+                            HStack(){
+                                Image(systemName: "checkmark.circle")
+                                    .font(.system(size: 22))
+                                    .padding(.trailing, 6)
+                                
+                                Text("Recebido")
+                                    .font(.system(size: 18))
+                            }
                         }
                         .toggleStyle(SwitchToggleStyle(tint: Color.expense))
                         .frame(minHeight: 40)
@@ -75,12 +77,14 @@ struct TransactionModal: View {
                         
                         //MARK: DatePicker component
                         DatePicker( selection: $date, in: Date()..., displayedComponents: [.date]) {
-                            Image(systemName: "calendar.badge.plus")
-                                .font(.system(size: 22))
-                                .padding(.trailing, 6)
-                            
-                            Text("Data")
-                                .font(.system(size: 18))
+                            HStack(){
+                                Image(systemName: "calendar.badge.plus")
+                                    .font(.system(size: 22))
+                                    .padding(.trailing, 6)
+                                
+                                Text("Data")
+                                    .font(.system(size: 18))
+                            }
                         }
                         .frame(minHeight: 40)
                         Divider()
