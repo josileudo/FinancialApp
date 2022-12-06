@@ -9,16 +9,17 @@ import SwiftUI
 
 struct ModalSheetView: View {
     @Binding var showModalView: Bool;
-   
-    @State private var gestureSize: CGSize = CGSize.zero;
+    
     @State private var curHeight: CGFloat = 400
+    @State private var gestureSize: CGSize = CGSize.zero;
     
     let minHeight: CGFloat = 400;
     let maxHeight: CGFloat = 700;
     
     var body: some View {
         if showModalView {
-            withAnimation(.easeInOut) {
+            //TODO: Fix animation
+            withAnimation(.easeInOut(duration: 10)) {
                 ZStack(alignment: .bottom)  {
                     Color.black
                         .opacity(0.3)
@@ -26,13 +27,13 @@ struct ModalSheetView: View {
                         .onTapGesture {
                             showModalView.toggle()
                         }
-                    
+        
                     mainView
                         .transition(.move(edge: .bottom))
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity,  alignment: .bottom)
                 .ignoresSafeArea()
-            }
+           }
         }
     }
     
@@ -49,37 +50,39 @@ struct ModalSheetView: View {
                         
             ZStack(){
                 VStack {
+                    //MARK: Add categories here
                     Text("Hi everybody")
                 }
                 .frame(maxHeight: .infinity)
+                .padding(.horizontal, 30)
             }
-            .frame(height: curHeight)
-            .frame(maxWidth: .infinity)
-            .background(
-                ZStack(){
-                    RoundedRectangle(cornerRadius: 30)
-                        Rectangle()
-                        .frame(maxHeight: curHeight / 4)
-                }
-            )
+            .frame(maxHeight: .infinity)
+            .padding(.bottom, 30)
         }
-//        .background(content: {
-//           CustomCornerModel(corners: [.topLeft, .topRight], radius: 30).fill(Color.white)
-//        })
-        
+        .frame(height: curHeight)
+        .frame(maxWidth: .infinity)
+        .background(content: {
+           CustomCornerModel(corners: [.topLeft, .topRight], radius: 30).fill(Color.white)
+        })
     }
-    
+  
     var modalGesture: some Gesture {
         DragGesture(minimumDistance: 0, coordinateSpace: .global)
             .onChanged { val in
                 let dragAmount = val.translation.height - gestureSize.height
-                curHeight -= dragAmount
                 
-                if curHeight > maxHeight || curHeight < minHeight {
-                    curHeight -= dragAmount
+                if(curHeight > maxHeight) {
+                    withAnimation(.easeInOut(duration: 1)) {
+                        curHeight = maxHeight//dragAmount / 6
+                    }
+                } else if (curHeight < minHeight) {
+                    withAnimation(.easeInOut(duration: 1)) {
+                        curHeight = minHeight//dragAmount / 6
+                    }
                 } else {
                     curHeight -= dragAmount
                 }
+                
                 gestureSize = val.translation
             }
             .onEnded { val in
