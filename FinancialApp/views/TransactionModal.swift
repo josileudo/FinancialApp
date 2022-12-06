@@ -9,11 +9,13 @@ import SwiftUI
 
 struct TransactionModal: View {
     @Binding var isPresented: Bool;
+    
     @State private var value: String = "R$ 0,00";
     @State private var menu: String = "";
     @State private var date = Date();
     @State private var toggleSwitch: Bool = false;
     @State private var describerField: String = "";
+    @State private var showModalView: Bool = false;
     
     var body: some View {
         let columns = Array(
@@ -102,7 +104,21 @@ struct TransactionModal: View {
                         
                         //MARK: Categories
                         
+                        HStack(){
+                            Image(systemName: "bookmark")
+                                .font(.system(size: 22))
+                                .padding(.trailing, 6)
+                            
+                            Button(action: {
+                                showModalView.toggle();
+                                
+                            }, label: {
+                                Text("Higiene")
+                            })
+                        }
+                        .frame(minHeight: 40)
                         
+                       
                     }
                     .padding(.top, 15)
                    
@@ -110,7 +126,7 @@ struct TransactionModal: View {
                 
                     //MARK: SAVE BUTTON
                     Button(action: {
-                        
+                      
                     }, label: {
                         Text("Salvar")
                             .frame(maxWidth: .infinity)
@@ -119,7 +135,8 @@ struct TransactionModal: View {
                             
                     })
                     .buttonStyle(PresseableButtonStyle())
-                        
+                      
+                    
                 }
                 .padding(15)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
@@ -128,9 +145,12 @@ struct TransactionModal: View {
                         .fill(.white)
                         .ignoresSafeArea()
                 })
+                
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            //.padding([.leading, .trailing])
+                
+            ModalSheetView(showModalView: $showModalView)
+               
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background (content: {
@@ -141,6 +161,7 @@ struct TransactionModal: View {
         .zIndex(0)
         
     }
+        
 }
 
 struct PresseableButtonStyle: ButtonStyle {

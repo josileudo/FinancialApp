@@ -31,6 +31,7 @@
 		D2CFA21E289323FA00AE5981 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CFA21D289323FA00AE5981 /* Extensions.swift */; };
 		D2D63FCB28994EFE00D9D3D3 /* TransactionListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D63FCA28994EFE00D9D3D3 /* TransactionListViewModel.swift */; };
 		D2DF62E828A40257004336D6 /* TransactionBalance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF62E728A40257004336D6 /* TransactionBalance.swift */; };
+		D2E3FE28293E69970039A486 /* ModalSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E3FE27293E69970039A486 /* ModalSheetView.swift */; };
 		D2EAE3B628E76B0900E89B1B /* RoutePages.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EAE3B528E76B0900E89B1B /* RoutePages.swift */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,7 @@
 		D2CFA21D289323FA00AE5981 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D2D63FCA28994EFE00D9D3D3 /* TransactionListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListViewModel.swift; sourceTree = "<group>"; };
 		D2DF62E728A40257004336D6 /* TransactionBalance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionBalance.swift; sourceTree = "<group>"; };
+		D2E3FE27293E69970039A486 /* ModalSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalSheetView.swift; sourceTree = "<group>"; };
 		D2EAE3B528E76B0900E89B1B /* RoutePages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutePages.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -135,6 +137,7 @@
 				D23079C728B3A2B100A24D1D /* BottomNavbarItem.swift */,
 				D20A7A7F28A6DB0F0084B931 /* TransactionExpenses.swift */,
 				2F43CE912938E654006BE2EC /* DropDownMenuView.swift */,
+				D2E3FE27293E69970039A486 /* ModalSheetView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				D2EAE3B628E76B0900E89B1B /* RoutePages.swift in Sources */,
 				D2CFA21E289323FA00AE5981 /* Extensions.swift in Sources */,
 				D2DF62E828A40257004336D6 /* TransactionBalance.swift in Sources */,
+				D2E3FE28293E69970039A486 /* ModalSheetView.swift in Sources */,
 				D2D63FCB28994EFE00D9D3D3 /* TransactionListViewModel.swift in Sources */,
 				D20A343328E4868800409FFE /* TransactionModal.swift in Sources */,
 				D2CFA1F42892C24600AE5981 /* FinancialApp.swift in Sources */,
