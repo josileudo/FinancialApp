@@ -16,6 +16,7 @@ struct TransactionModal: View {
     @State private var toggleSwitch: Bool = false;
     @State private var describerField: String = "";
     @State private var showModalView: Bool = false;
+        
     
     var body: some View {
         let columns = Array(
@@ -117,8 +118,7 @@ struct TransactionModal: View {
                             })
                         }
                         .frame(minHeight: 40)
-                        
-                       
+
                     }
                     .padding(.top, 15)
                    
@@ -149,7 +149,7 @@ struct TransactionModal: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
                 
-            ModalSheetView(showModalView: $showModalView)
+            ModalSheetView(categories: Category.categories, showModalView: $showModalView)
                
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -161,7 +161,6 @@ struct TransactionModal: View {
         .zIndex(0)
         
     }
-        
 }
 
 struct PresseableButtonStyle: ButtonStyle {

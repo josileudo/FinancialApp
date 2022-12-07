@@ -24,5 +24,11 @@ var transactionPreviewData = Transaction(
     isEdited: false
 );
 
+var categoryPreviewData = Category(
+     id: 25,
+     name: "Entertainment",
+     icon: .film
+);
+
 var transactionListPreviewData = [Transaction](repeating: transactionPreviewData, count: 10);
 var selectedPreviewIndex: Int = 0;

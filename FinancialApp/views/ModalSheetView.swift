@@ -6,8 +6,12 @@
 //
 
 import SwiftUI
+import SwiftUIFontIcon
 
 struct ModalSheetView: View {
+    
+    var categories: [Category]
+    
     @Binding var showModalView: Bool;
     
     @State private var curHeight: CGFloat = 400
@@ -49,15 +53,17 @@ struct ModalSheetView: View {
             .gesture(modalGesture)
                         
             ZStack(){
-                VStack {
-                    //MARK: Add categories here
-                    Text("Hi everybody")
+                HStack {
+                    List(){
+                        ForEach(Array(categories), id: \.id) { category in
+                            //MARK: Add categories here
+                            CategoriesView(category: category)
+                        }
+                    }
+                    .listStyle(.plain)
                 }
-                .frame(maxHeight: .infinity)
-                .padding(.horizontal, 30)
             }
             .frame(maxHeight: .infinity)
-            .padding(.bottom, 30)
         }
         .frame(height: curHeight)
         .frame(maxWidth: .infinity)
@@ -93,6 +99,6 @@ struct ModalSheetView: View {
 
 struct ModalSheetView_Previews: PreviewProvider {
     static var previews: some View {
-        ModalSheetView(showModalView: .constant(false))
+        ModalSheetView(categories: Category.all, showModalView: .constant(true))
     }
 }

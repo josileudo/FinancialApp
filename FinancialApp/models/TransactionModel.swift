@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUIFontIcon
+import SwiftUI
 
 struct Transaction: Identifiable, Decodable, Hashable {
     let id: Int
@@ -24,13 +25,20 @@ struct Transaction: Identifiable, Decodable, Hashable {
     let isEdited: Bool
     
     var icon: FontAwesomeCode {
+        
         if let category = Category.all.first(where: { $0.id == categoryId }) {
+            
+            Category.categories.forEach {test in
+                print("** test", test.id)
+            }
+            
             return category.icon;
+           
         }
         
         return .question;
     }
-    
+        
     var dateParsed: Date {
         date.dateParsed();
     }
@@ -110,6 +118,7 @@ extension Category {
         software,
         creditCardPayment
     ];
+    
     
     static let all: [Category] = categories + subCategories;
 }
