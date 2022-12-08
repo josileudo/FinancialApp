@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftUIFontIcon
 
 struct TransactionModal: View {
     @Binding var isPresented: Bool;
@@ -114,7 +115,18 @@ struct TransactionModal: View {
                                 showModalView.toggle();
                                 
                             }, label: {
-                                Text("Higiene")
+                                HStack(){
+                                    FontIcon.text(.awesome5Solid(code: Category.autoAndTransport.icon), fontsize: 24, color: Color.icon)
+                                    
+                                    Text(Category.autoAndTransport.name)
+                                        .foregroundColor(Color.black)
+                                        
+                                }
+                                .padding(12)
+                                .overlay(
+                                    Capsule(style: .continuous)
+                                        .stroke(Color.icon, lineWidth: 1)
+                                )
                             })
                         }
                         .frame(minHeight: 40)
