@@ -20,14 +20,16 @@ struct TransactionModal: View {
         
     
     var body: some View {
-        let columns = Array(
-            repeating: GridItem(.flexible(), spacing: 0), count: 3
-        )
+        let columns = [
+            GridItem(.flexible(), spacing: nil, alignment: .leading),
+            GridItem(.fixed(200), spacing: nil, alignment: .center),
+            GridItem(.flexible(), spacing: nil, alignment: .trailing),
+        ]
         
         GeometryReader {_ in
             
             VStack() {
-                LazyVGrid(columns: columns, alignment: .leading){
+                LazyVGrid(columns: columns){
                     VStack(alignment: .leading) {
                     
                         Button(action: {

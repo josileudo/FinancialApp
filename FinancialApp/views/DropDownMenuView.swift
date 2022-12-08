@@ -9,12 +9,13 @@ import SwiftUI
 
 struct DropDownMenuView: View {
     @State private var expand: Bool = false
+    @State private var typeChoice: String = "Despesas"
     
     var body: some View {
         VStack() {
             VStack(alignment: .leading, spacing: 12){
                 HStack() {
-                    Text("Receita")
+                    Text(typeChoice)
                         .font(.system(size: 18, weight: .bold))
                     
                     Image(systemName: expand
@@ -33,13 +34,15 @@ struct DropDownMenuView: View {
                 
                 if expand {
                     Button(action: {
-                        
+                        typeChoice = "Receitas"
+                        self.expand.toggle()
                     }, label: {
                         Text("Receitas")
                     })
                     
                     Button(action: {
-                        
+                        typeChoice = "Despesas"
+                        self.expand.toggle()
                     }, label: {
                         Text("Despesas")
                     })

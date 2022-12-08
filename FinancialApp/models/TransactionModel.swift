@@ -27,15 +27,8 @@ struct Transaction: Identifiable, Decodable, Hashable {
     var icon: FontAwesomeCode {
         
         if let category = Category.all.first(where: { $0.id == categoryId }) {
-            
-            Category.categories.forEach {test in
-                print("** test", test.id)
-            }
-            
             return category.icon;
-           
         }
-        
         return .question;
     }
         
