@@ -99,6 +99,6 @@ struct ModalSheetView: View {
 
 struct ModalSheetView_Previews: PreviewProvider {
     static var previews: some View {
-        ModalSheetView(categories: Category.all, showModalView: .constant(true))
+        ModalSheetView(categories: Category.categories, showModalView: .constant(true))
     }
 }

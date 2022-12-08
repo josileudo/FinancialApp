@@ -17,7 +17,9 @@ struct TransactionModal: View {
     @State private var toggleSwitch: Bool = false;
     @State private var describerField: String = "";
     @State private var showModalView: Bool = false;
-        
+    @State private var typeChoice: String = "Receita"
+    
+    
     
     var body: some View {
         let columns = [
