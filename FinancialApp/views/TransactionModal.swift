@@ -11,15 +11,14 @@ import SwiftUIFontIcon
 struct TransactionModal: View {
     @Binding var isPresented: Bool;
     
+    @StateObject var register = RegisterTypes()
+    
     @State private var value: String = "R$ 0,00";
     @State private var menu: String = "";
     @State private var date = Date();
     @State private var toggleSwitch: Bool = false;
     @State private var describerField: String = "";
     @State private var showModalView: Bool = false;
-    @State private var typeChoice: String = "Receita"
-    
-    
     
     var body: some View {
         let columns = [
@@ -44,6 +43,7 @@ struct TransactionModal: View {
                     
                     //MARK: Drop-down list 
                     DropDownMenuView()
+                    
                 }
                 .frame(maxWidth: .infinity)
                 .foregroundColor(Color.white)
@@ -77,7 +77,7 @@ struct TransactionModal: View {
                                     .font(.system(size: 18))
                             }
                         }
-                        .toggleStyle(SwitchToggleStyle(tint: Color.expense))
+                        .toggleStyle(SwitchToggleStyle(tint: register.type == "debit" ? Color.expense : Color.income))
                         .frame(minHeight: 40)
                         
                         Divider()
@@ -126,7 +126,8 @@ struct TransactionModal: View {
                                         .foregroundColor(Color.black)
                                         
                                 }
-                                .padding(12)
+                                .padding([.top, .bottom], 7)
+                                .padding([.leading, .trailing], 14)
                                 .overlay(
                                     Capsule(style: .continuous)
                                         .stroke(Color.icon, lineWidth: 1)
@@ -151,8 +152,7 @@ struct TransactionModal: View {
                             
                     })
                     .buttonStyle(PresseableButtonStyle())
-                      
-                    
+
                 }
                 .padding(15)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
@@ -171,19 +171,22 @@ struct TransactionModal: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background (content: {
             Rectangle()
-                .fill(menu == "receita" ? Color.headerIncomeColor : Color.expense)
+                .fill(register.type == "debit" ? Color.expense : Color.income)
                 .ignoresSafeArea()
         })
-        .zIndex(0)
+        .environmentObject(register)
         
     }
 }
 
 struct PresseableButtonStyle: ButtonStyle {
+    
+    @EnvironmentObject var register : RegisterTypes
+    
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .padding(12)
-            .background(Color.expense)
+            .background(register.type == "debit" ? Color.expense : Color.income)
             .cornerRadius(30)
             .brightness(configuration.isPressed ? 0.1 : 0)
             .scaleEffect(configuration.isPressed ? 1.02 : 1)
@@ -193,6 +196,6 @@ struct PresseableButtonStyle: ButtonStyle {
 
 struct TransactionModal_Previews: PreviewProvider {
     static var previews: some View {
-        TransactionModal(isPresented: .constant(false));
+        TransactionModal(isPresented: .constant(false))
     }
 }

@@ -7,10 +7,16 @@
 
 import SwiftUI
 
+@MainActor class RegisterTypes : ObservableObject {
+    @Published var type: String = "";
+}
+
 struct DropDownMenuView: View {
     @State private var expand: Bool = false
-    @State private var typeChoice: String = "Despesas"
+    @State var typeChoice: String = (TransactionType.allValues.first?.rawValue ?? "debit")
     
+    @EnvironmentObject var register : RegisterTypes;
+        
     var body: some View {
         VStack() {
             VStack(alignment: .leading, spacing: 12){
@@ -33,19 +39,15 @@ struct DropDownMenuView: View {
                 }
                 
                 if expand {
-                    Button(action: {
-                        typeChoice = "Receitas"
-                        self.expand.toggle()
-                    }, label: {
-                        Text("Receitas")
-                    })
-                    
-                    Button(action: {
-                        typeChoice = "Despesas"
-                        self.expand.toggle()
-                    }, label: {
-                        Text("Despesas")
-                    })
+                    ForEach(TransactionType.allValues, id:\.self){ type in
+                        Button(action: {
+                            typeChoice = type.rawValue
+                            self.register.type = typeChoice
+                            self.expand.toggle()
+                        }, label: {
+                            Text("\(type.rawValue)")
+                        })
+                    }
                 }
             }
             .padding([.leading, .trailing], 15)
@@ -64,15 +66,24 @@ struct DropDownMenuView: View {
             .zIndex(1)
         }
     }
+    
+    func returnType() {
+        return self.register.type = typeChoice
+    }
 }
 
 struct DropDownMenuView_Previews: PreviewProvider {
+    static var typeChoiceCategory: String = {
+        let typeChoiceCategory = selectedPreviewCategory;
+        return typeChoiceCategory;
+    }()
+    
     static var previews: some View {
         Group {
             DropDownMenuView()
             DropDownMenuView()
                 .preferredColorScheme(.dark)
         }
-       
+        .environmentObject(RegisterTypes())
     }
 }

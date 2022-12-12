@@ -47,3 +47,20 @@ extension Double {
         return (self * 100).rounded() / 100;
     }
 }
+
+struct choiceCategoryColor {
+    var type: String;
+    var color: Color;
+    
+    mutating func selectType(type: String) {
+        switch type {
+        case "Despesas":
+            color = Color.expense
+        case "Receitas":
+            color = Color.income
+        default:
+            break
+        }
+    }
+}
+

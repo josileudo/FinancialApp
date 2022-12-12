@@ -45,9 +45,11 @@ struct Transaction: Identifiable, Decodable, Hashable {
     }
 }
 
-enum TransactionType: String {
+enum TransactionType: String, CaseIterable {
     case debit = "debit"
     case credit = "credit"
+    
+    static let allValues = [debit, credit]
 }
 
 struct Category {
@@ -115,3 +117,4 @@ extension Category {
     
     static let all: [Category] = categories + subCategories;
 }
+

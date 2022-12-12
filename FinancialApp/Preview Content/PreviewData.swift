@@ -31,4 +31,7 @@ var categoryPreviewData = Category(
 );
 
 var transactionListPreviewData = [Transaction](repeating: transactionPreviewData, count: 10);
+
 var selectedPreviewIndex: Int = 0;
+
+var selectedPreviewCategory: String = "Despesas";
