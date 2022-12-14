@@ -7,8 +7,10 @@
 
 import SwiftUI
 
-class RegisterType: Identifiable, Codable {
-    var typeCategory: String = "Despesas"
+@MainActor class RegisterTypes : ObservableObject {
+    @Published var type: String = "";
+    
+    init() {
+        self.type = TransactionType.debit.rawValue
+    }
 }
-
-

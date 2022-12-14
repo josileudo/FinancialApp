@@ -7,10 +7,6 @@
 
 import SwiftUI
 
-@MainActor class RegisterTypes : ObservableObject {
-    @Published var type: String = "";
-}
-
 struct DropDownMenuView: View {
     @State private var expand: Bool = false
     @State var typeChoice: String = (TransactionType.allValues.first?.rawValue ?? "debit")
@@ -21,7 +17,7 @@ struct DropDownMenuView: View {
         VStack() {
             VStack(alignment: .leading, spacing: 12){
                 HStack() {
-                    Text(typeChoice)
+                    Text(typeChoice.captilizingFirstLetter())
                         .font(.system(size: 18, weight: .bold))
                     
                     Image(systemName: expand
@@ -42,10 +38,11 @@ struct DropDownMenuView: View {
                     ForEach(TransactionType.allValues, id:\.self){ type in
                         Button(action: {
                             typeChoice = type.rawValue
+                            
                             self.register.type = typeChoice
                             self.expand.toggle()
                         }, label: {
-                            Text("\(type.rawValue)")
+                            Text("\(type.rawValue.captilizingFirstLetter())")
                         })
                     }
                 }
@@ -73,11 +70,6 @@ struct DropDownMenuView: View {
 }
 
 struct DropDownMenuView_Previews: PreviewProvider {
-    static var typeChoiceCategory: String = {
-        let typeChoiceCategory = selectedPreviewCategory;
-        return typeChoiceCategory;
-    }()
-    
     static var previews: some View {
         Group {
             DropDownMenuView()

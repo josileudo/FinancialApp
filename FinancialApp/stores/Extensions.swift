@@ -48,19 +48,14 @@ extension Double {
     }
 }
 
-struct choiceCategoryColor {
-    var type: String;
-    var color: Color;
     
-    mutating func selectType(type: String) {
-        switch type {
-        case "Despesas":
-            color = Color.expense
-        case "Receitas":
-            color = Color.income
-        default:
-            break
-        }
+func choiceColorToType(typeRegister: String) -> Color {
+    let types = typeRegister;
+    
+    if (types == TransactionType.debit.rawValue) {
+        return Color.expense
+    } else {
+        return Color.income
     }
 }
 

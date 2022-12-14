@@ -73,11 +73,11 @@ struct TransactionModal: View {
                                     .font(.system(size: 22))
                                     .padding(.trailing, 6)
                                 
-                                Text("Recebido")
+                                Text(register.type == "debit" ? "Pago" : "Recebido")
                                     .font(.system(size: 18))
                             }
                         }
-                        .toggleStyle(SwitchToggleStyle(tint: register.type == "debit" ? Color.expense : Color.income))
+                        .toggleStyle(SwitchToggleStyle(tint: choiceColorToType(typeRegister: register.type)))
                         .frame(minHeight: 40)
                         
                         Divider()
@@ -171,7 +171,7 @@ struct TransactionModal: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background (content: {
             Rectangle()
-                .fill(register.type == "debit" ? Color.expense : Color.income)
+                .fill(choiceColorToType(typeRegister: register.type))
                 .ignoresSafeArea()
         })
         .environmentObject(register)
@@ -186,7 +186,7 @@ struct PresseableButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .padding(12)
-            .background(register.type == "debit" ? Color.expense : Color.income)
+            .background(choiceColorToType(typeRegister: register.type))
             .cornerRadius(30)
             .brightness(configuration.isPressed ? 0.1 : 0)
             .scaleEffect(configuration.isPressed ? 1.02 : 1)
