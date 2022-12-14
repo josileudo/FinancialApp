@@ -118,3 +118,13 @@ extension Category {
     static let all: [Category] = categories + subCategories;
 }
 
+extension String {
+    func captilizingFirstLetter() -> String {
+        return prefix(1).uppercased() + self.lowercased().dropFirst()
+    }
+    
+    mutating func captilizeFirstLetter() {
+        self = self.captilizingFirstLetter()
+    }
+}
+
