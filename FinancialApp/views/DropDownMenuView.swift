@@ -29,18 +29,20 @@ struct DropDownMenuView: View {
                 
                 }
                 .onTapGesture {
-                    withAnimation(.spring()) {
+                    withAnimation(.easeInOut) {
                         self.expand.toggle()
                     }
                 }
-                
                 if expand {
                     ForEach(TransactionType.allValues, id:\.self){ type in
                         Button(action: {
-                            typeChoice = type.rawValue
+                            withAnimation(.easeInOut) {
+                                typeChoice = type.rawValue
+                                
+                                self.register.type = typeChoice
+                                self.expand.toggle()
+                            }
                             
-                            self.register.type = typeChoice
-                            self.expand.toggle()
                         }, label: {
                             Text("\(type.rawValue.captilizingFirstLetter())")
                         })
@@ -60,7 +62,6 @@ struct DropDownMenuView: View {
             })
             .foregroundColor(Color.white)
             .font(.system(size: 18, weight: .bold))
-            .zIndex(1)
         }
     }
     
