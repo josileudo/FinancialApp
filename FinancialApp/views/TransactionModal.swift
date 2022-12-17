@@ -51,7 +51,7 @@ struct TransactionModal: View {
                 
                 // MARK: Receiver value
                 VStack(alignment: .leading ) {
-                    Text("Digite sua Receita")
+                    Text("Write your \(register.type == "debit" ?  "expense" : "income")")
                         .font(.system(size: 14, weight: .semibold))
                     
                     TextField("R$ 0,00", text: $value)
@@ -73,7 +73,7 @@ struct TransactionModal: View {
                                     .font(.system(size: 22))
                                     .padding(.trailing, 6)
                                 
-                                Text(register.type == "debit" ? "Pago" : "Recebido")
+                                Text(debitType(register: register.type))
                                     .font(.system(size: 18))
                             }
                         }
@@ -89,7 +89,7 @@ struct TransactionModal: View {
                                     .font(.system(size: 22))
                                     .padding(.trailing, 6)
                                 
-                                Text("Data")
+                                Text("Date")
                                     .font(.system(size: 18))
                             }
                         }
@@ -102,7 +102,7 @@ struct TransactionModal: View {
                                 .font(.system(size: 22))
                                 .padding(.trailing, 6)
                             
-                            TextField("Descrição", text: $describerField)
+                            TextField("Description", text: $describerField)
                         }
                         .frame(minHeight: 40)
                         
@@ -145,7 +145,7 @@ struct TransactionModal: View {
                     Button(action: {
                       
                     }, label: {
-                        Text("Salvar")
+                        Text("Save")
                             .frame(maxWidth: .infinity)
                             .foregroundColor(Color.white)
                             .font(.system(size: 18, weight: .bold))

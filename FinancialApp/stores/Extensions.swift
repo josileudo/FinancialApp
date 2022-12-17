@@ -49,13 +49,21 @@ extension Double {
 }
 
     
-func choiceColorToType(typeRegister: String) -> Color {
+func choiceColorToType(typeRegister: TransactionType.RawValue) -> Color {
     let types = typeRegister;
     
     if (types == TransactionType.debit.rawValue) {
         return Color.expense
     } else {
         return Color.income
+    }
+}
+
+func debitType(register: TransactionType.RawValue) -> String {
+    if register == TransactionType.debit.rawValue {
+        return "Paid"
+    } else {
+        return "Received"
     }
 }
 
