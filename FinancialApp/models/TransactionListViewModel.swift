@@ -37,7 +37,7 @@ final class TransactionListViewModel: ObservableObject {
                         dump(response)
                         throw URLError(.badServerResponse);
                 }
-                
+                print(data)
                 return data;
             }
             .decode(type: [Transaction].self, decoder: JSONDecoder())

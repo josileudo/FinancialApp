@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F43CE922938E654006BE2EC /* DropDownMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F43CE912938E654006BE2EC /* DropDownMenuView.swift */; };
 		D20A343328E4868800409FFE /* TransactionModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20A343228E4868800409FFE /* TransactionModal.swift */; };
 		D20A7A8028A6DB0F0084B931 /* TransactionExpenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20A7A7F28A6DB0F0084B931 /* TransactionExpenses.swift */; };
+		D21030C42940037800C22201 /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21030C32940037800C22201 /* CategoriesView.swift */; };
 		D22F2341289EF32D00FFEC38 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = D22F2340289EF32D00FFEC38 /* SwiftUICharts */; };
 		D23079C828B3A2B100A24D1D /* BottomNavbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23079C728B3A2B100A24D1D /* BottomNavbarItem.swift */; };
+		D246163B2944B728007D3433 /* RegisterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246163A2944B728007D3433 /* RegisterType.swift */; };
 		D247CF13289A9C2600C76FB6 /* RecentTransactionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D247CF12289A9C2600C76FB6 /* RecentTransactionList.swift */; };
 		D287168F28E7645900ABE32F /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287168E28E7645900ABE32F /* HomePageView.swift */; };
+		D294E3B72936DDF50083DC05 /* CustomCornerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D294E3B62936DDF50083DC05 /* CustomCornerModel.swift */; };
 		D2A03FD62897F35400EE2067 /* TransactionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A03FD52897F35400EE2067 /* TransactionRow.swift */; };
 		D2A03FD928984C5100EE2067 /* SwiftUIFontIcon in Frameworks */ = {isa = PBXBuildFile; productRef = D2A03FD828984C5100EE2067 /* SwiftUIFontIcon */; };
 		D2A83F3C289D9B200094EB52 /* TransactionsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A83F3B289D9B200094EB52 /* TransactionsList.swift */; };
@@ -29,6 +33,7 @@
 		D2CFA21E289323FA00AE5981 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CFA21D289323FA00AE5981 /* Extensions.swift */; };
 		D2D63FCB28994EFE00D9D3D3 /* TransactionListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D63FCA28994EFE00D9D3D3 /* TransactionListViewModel.swift */; };
 		D2DF62E828A40257004336D6 /* TransactionBalance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF62E728A40257004336D6 /* TransactionBalance.swift */; };
+		D2E3FE28293E69970039A486 /* ModalSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E3FE27293E69970039A486 /* ModalSheetView.swift */; };
 		D2EAE3B628E76B0900E89B1B /* RoutePages.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EAE3B528E76B0900E89B1B /* RoutePages.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,12 +57,16 @@
 /* Begin PBXFileReference section */
 		2F1B38C028CFF7470074566F /* FinancialAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinancialAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F1B38C128CFF7470074566F /* FinancialAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinancialAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F43CE912938E654006BE2EC /* DropDownMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenuView.swift; sourceTree = "<group>"; };
 		2FC6A0F728C9282300783E24 /* FinancialApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinancialApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D20A343228E4868800409FFE /* TransactionModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModal.swift; sourceTree = "<group>"; };
 		D20A7A7F28A6DB0F0084B931 /* TransactionExpenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionExpenses.swift; sourceTree = "<group>"; };
+		D21030C32940037800C22201 /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
 		D23079C728B3A2B100A24D1D /* BottomNavbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomNavbarItem.swift; sourceTree = "<group>"; };
+		D246163A2944B728007D3433 /* RegisterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterType.swift; sourceTree = "<group>"; };
 		D247CF12289A9C2600C76FB6 /* RecentTransactionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTransactionList.swift; sourceTree = "<group>"; };
 		D287168E28E7645900ABE32F /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
+		D294E3B62936DDF50083DC05 /* CustomCornerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCornerModel.swift; sourceTree = "<group>"; };
 		D2A03FD52897F35400EE2067 /* TransactionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRow.swift; sourceTree = "<group>"; };
 		D2A83F3B289D9B200094EB52 /* TransactionsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsList.swift; sourceTree = "<group>"; };
 		D2B1BB7B28942B470053419C /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
@@ -72,6 +81,7 @@
 		D2CFA21D289323FA00AE5981 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D2D63FCA28994EFE00D9D3D3 /* TransactionListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListViewModel.swift; sourceTree = "<group>"; };
 		D2DF62E728A40257004336D6 /* TransactionBalance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionBalance.swift; sourceTree = "<group>"; };
+		D2E3FE27293E69970039A486 /* ModalSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalSheetView.swift; sourceTree = "<group>"; };
 		D2EAE3B528E76B0900E89B1B /* RoutePages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutePages.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,6 +140,9 @@
 				D2DF62E728A40257004336D6 /* TransactionBalance.swift */,
 				D23079C728B3A2B100A24D1D /* BottomNavbarItem.swift */,
 				D20A7A7F28A6DB0F0084B931 /* TransactionExpenses.swift */,
+				2F43CE912938E654006BE2EC /* DropDownMenuView.swift */,
+				D2E3FE27293E69970039A486 /* ModalSheetView.swift */,
+				D21030C32940037800C22201 /* CategoriesView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -139,8 +152,17 @@
 			children = (
 				D2D63FCA28994EFE00D9D3D3 /* TransactionListViewModel.swift */,
 				D2B1BB7B28942B470053419C /* TransactionModel.swift */,
+				D294E3B62936DDF50083DC05 /* CustomCornerModel.swift */,
 			);
 			path = models;
+			sourceTree = "<group>";
+		};
+		D24616392944B6E7007D3433 /* utills */ = {
+			isa = PBXGroup;
+			children = (
+				D246163A2944B728007D3433 /* RegisterType.swift */,
+			);
+			path = utills;
 			sourceTree = "<group>";
 		};
 		D2CFA1E72892C24600AE5981 = {
@@ -158,6 +180,7 @@
 		D2CFA1F22892C24600AE5981 /* FinancialApp */ = {
 			isa = PBXGroup;
 			children = (
+				D24616392944B6E7007D3433 /* utills */,
 				D2CFA1F72892C24800AE5981 /* Assets.xcassets */,
 				D2180D34293171A40024F4BE /* stores */,
 				D2180D33293171650024F4BE /* routes */,
@@ -336,16 +359,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D246163B2944B728007D3433 /* RegisterType.swift in Sources */,
 				D2B1BB7E289476700053419C /* PreviewData.swift in Sources */,
 				D247CF13289A9C2600C76FB6 /* RecentTransactionList.swift in Sources */,
 				D2A83F3C289D9B200094EB52 /* TransactionsList.swift in Sources */,
 				D20A7A8028A6DB0F0084B931 /* TransactionExpenses.swift in Sources */,
+				2F43CE922938E654006BE2EC /* DropDownMenuView.swift in Sources */,
 				D2B1BB7C28942B470053419C /* TransactionModel.swift in Sources */,
 				D2CFA1F62892C24600AE5981 /* ContentView.swift in Sources */,
+				D21030C42940037800C22201 /* CategoriesView.swift in Sources */,
 				D2A03FD62897F35400EE2067 /* TransactionRow.swift in Sources */,
+				D294E3B72936DDF50083DC05 /* CustomCornerModel.swift in Sources */,
 				D2EAE3B628E76B0900E89B1B /* RoutePages.swift in Sources */,
 				D2CFA21E289323FA00AE5981 /* Extensions.swift in Sources */,
 				D2DF62E828A40257004336D6 /* TransactionBalance.swift in Sources */,
+				D2E3FE28293E69970039A486 /* ModalSheetView.swift in Sources */,
 				D2D63FCB28994EFE00D9D3D3 /* TransactionListViewModel.swift in Sources */,
 				D20A343328E4868800409FFE /* TransactionModal.swift in Sources */,
 				D2CFA1F42892C24600AE5981 /* FinancialApp.swift in Sources */,

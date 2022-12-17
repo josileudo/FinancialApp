@@ -15,6 +15,7 @@ extension Color {
     static let systemBackground = Color(uiColor: .systemBackground);
     static let income = Color("Income");
     static let expense = Color("expense");
+    static let headerIncomeColor = Color("HeaderIncomeColor");
 }
 
 extension DateFormatter {
@@ -46,3 +47,23 @@ extension Double {
         return (self * 100).rounded() / 100;
     }
 }
+
+    
+func choiceColorToType(typeRegister: TransactionType.RawValue) -> Color {
+    let types = typeRegister;
+    
+    if (types == TransactionType.debit.rawValue) {
+        return Color.expense
+    } else {
+        return Color.income
+    }
+}
+
+func debitType(register: TransactionType.RawValue) -> String {
+    if register == TransactionType.debit.rawValue {
+        return "Paid"
+    } else {
+        return "Received"
+    }
+}
+

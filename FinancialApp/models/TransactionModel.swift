@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUIFontIcon
+import SwiftUI
 
 struct Transaction: Identifiable, Decodable, Hashable {
     let id: Int
@@ -24,13 +25,13 @@ struct Transaction: Identifiable, Decodable, Hashable {
     let isEdited: Bool
     
     var icon: FontAwesomeCode {
+        
         if let category = Category.all.first(where: { $0.id == categoryId }) {
             return category.icon;
         }
-        
         return .question;
     }
-    
+        
     var dateParsed: Date {
         date.dateParsed();
     }
@@ -44,9 +45,11 @@ struct Transaction: Identifiable, Decodable, Hashable {
     }
 }
 
-enum TransactionType: String {
+enum TransactionType: String, CaseIterable {
     case debit = "debit"
     case credit = "credit"
+    
+    static let allValues = [debit, credit]
 }
 
 struct Category {
@@ -111,5 +114,17 @@ extension Category {
         creditCardPayment
     ];
     
+    
     static let all: [Category] = categories + subCategories;
 }
+
+extension String {
+    func captilizingFirstLetter() -> String {
+        return prefix(1).uppercased() + self.lowercased().dropFirst()
+    }
+    
+    mutating func captilizeFirstLetter() {
+        self = self.captilizingFirstLetter()
+    }
+}
+
