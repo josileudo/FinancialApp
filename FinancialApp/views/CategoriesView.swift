@@ -13,7 +13,9 @@ struct CategoriesView: View {
     
     @State private var toggleActive: Bool = false;
     @State private var checkActive: Bool = false;
-     
+    
+    @Binding var showModalView: Bool
+    
     @EnvironmentObject var categoryId : CategoryId;
     
     var body: some View {
@@ -47,6 +49,7 @@ struct CategoriesView: View {
         .onTapGesture {
             withAnimation(.easeIn) {
                 self.categoryId.id = category.id
+                showModalView.toggle()
                 checkActive.toggle()
             }
         }
@@ -55,7 +58,7 @@ struct CategoriesView: View {
 
 struct CategoriesView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoriesView(category: Category.creditCardPayment)
+        CategoriesView(category: Category.creditCardPayment, showModalView: .constant(false))
             .environmentObject(CategoryId())
     }
         

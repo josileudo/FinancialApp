@@ -23,7 +23,7 @@ struct ModalSheetView: View {
     var body: some View {
         if showModalView {
             //TODO: Fix animation
-            withAnimation(.easeInOut) {
+           
                 ZStack(alignment: .bottom)  {
                     Color.black
                         .opacity(0.3)
@@ -31,14 +31,13 @@ struct ModalSheetView: View {
                         .onTapGesture {
                             showModalView.toggle()
                         }
-        
+                   
                     mainView
                         .transition(.move(edge: .bottom))
+
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity,  alignment: .bottom)
                 .ignoresSafeArea()
-           }
-            
         }
     }
     
@@ -58,7 +57,7 @@ struct ModalSheetView: View {
                     List(){
                         ForEach(Array(categories), id: \.id) { category in
                             //MARK: Add categories here
-                            CategoriesView(category: category)
+                            CategoriesView(category: category, showModalView: $showModalView)
                         }
                     }
                     .listStyle(.plain)
