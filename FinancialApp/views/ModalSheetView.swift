@@ -14,16 +14,16 @@ struct ModalSheetView: View {
     
     @Binding var showModalView: Bool;
     
-    @State private var curHeight: CGFloat = 400
+    @State private var curHeight: CGFloat = 400;
     @State private var gestureSize: CGSize = CGSize.zero;
-    
+   
     let minHeight: CGFloat = 400;
     let maxHeight: CGFloat = 700;
     
     var body: some View {
         if showModalView {
             //TODO: Fix animation
-            withAnimation(.easeInOut(duration: 10)) {
+            withAnimation(.easeInOut) {
                 ZStack(alignment: .bottom)  {
                     Color.black
                         .opacity(0.3)
@@ -38,6 +38,7 @@ struct ModalSheetView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity,  alignment: .bottom)
                 .ignoresSafeArea()
            }
+            
         }
     }
     
@@ -100,6 +101,7 @@ struct ModalSheetView: View {
 struct ModalSheetView_Previews: PreviewProvider {
     
     static var previews: some View {
+       
         ModalSheetView(categories: Category.categories, showModalView: .constant(true))
     }
 }

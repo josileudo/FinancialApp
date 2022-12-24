@@ -13,6 +13,8 @@ struct CategoriesView: View {
     
     @State private var toggleActive: Bool = false;
     @State private var checkActive: Bool = false;
+     
+    @EnvironmentObject var categoryId : CategoryId;
     
     var body: some View {
         //TODO: Fix button click between category name
@@ -35,7 +37,7 @@ struct CategoriesView: View {
                     .stroke(checkActive ?  Color.icon : Color.black.opacity(0.5), lineWidth: 1)
                     .frame(width: 25 , height: 25)
                 
-                if(checkActive){
+                if(category.name.isEmpty){
                     Circle()
                         .frame(width: 20, height: 20)
                         .foregroundColor(Color.icon)
@@ -44,6 +46,7 @@ struct CategoriesView: View {
         }
         .onTapGesture {
             withAnimation(.easeIn) {
+                self.categoryId.id = category.id
                 checkActive.toggle()
             }
         }
@@ -53,5 +56,7 @@ struct CategoriesView: View {
 struct CategoriesView_Previews: PreviewProvider {
     static var previews: some View {
         CategoriesView(category: Category.creditCardPayment)
+            .environmentObject(CategoryId())
     }
+        
 }

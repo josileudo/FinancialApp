@@ -11,14 +11,19 @@ import SwiftUIFontIcon
 struct TransactionModal: View {
     @Binding var isPresented: Bool;
     
-    @StateObject var register = RegisterTypes()
+    @StateObject var register = RegisterTypes();
+    @StateObject var categoryId = CategoryId();
     
     @State private var value: String = "R$ 0,00";
     @State private var menu: String = "";
-    @State private var date = Date();
-    @State private var toggleSwitch: Bool = false;
     @State private var describerField: String = "";
+    @State private var toggleSwitch: Bool = false;
     @State private var showModalView: Bool = false;
+    @State private var date = Date();
+  
+    init(stated: Bool = false, isPresented: Binding<Bool>){
+        self._isPresented = isPresented
+    }
     
     var body: some View {
         let columns = [
@@ -120,13 +125,15 @@ struct TransactionModal: View {
                                 
                             }, label: {
                                 HStack(){
-                                    FontIcon.text(.awesome5Solid(code: Category.autoAndTransport.icon), fontsize: 24, color: Color.icon)
+                                    FontIcon.text(.awesome5Solid(code: returnCategoryIcon(id: categoryId.id)),
+                                                  fontsize: 20, color: Color.icon
+                                    )
                                     
-                                    Text(Category.autoAndTransport.name)
+                                    Text(returnCategoryName(id: categoryId.id))
+                                        .font(.system(size: 16))
                                         .foregroundColor(Color.black)
-                                        
                                 }
-                                .padding([.top, .bottom], 7)
+                                .padding([.top, .bottom], 6)
                                 .padding([.leading, .trailing], 14)
                                 .overlay(
                                     Capsule(style: .continuous)
@@ -175,7 +182,7 @@ struct TransactionModal: View {
                 .ignoresSafeArea()
         })
         .environmentObject(register)
-        
+        .environmentObject(categoryId)
     }
 }
 
@@ -196,6 +203,6 @@ struct PresseableButtonStyle: ButtonStyle {
 
 struct TransactionModal_Previews: PreviewProvider {
     static var previews: some View {
-        TransactionModal(isPresented: .constant(false))
+        TransactionModal(stated: false, isPresented: .constant(false))
     }
 }
