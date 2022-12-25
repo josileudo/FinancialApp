@@ -46,8 +46,10 @@ struct CategoriesView: View {
             }
         }
         .onTapGesture {
-            self.categoryId.id = category.id;
-            showModalView.toggle();
+            withAnimation(.linear(duration: 0.4)) {
+                self.categoryId.id = category.id;
+                showModalView.toggle();
+            }
         }
     }
 }

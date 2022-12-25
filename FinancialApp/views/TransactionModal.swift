@@ -70,15 +70,15 @@ struct TransactionModal: View {
                 VStack() {
                     
                     VStack(alignment: .leading, spacing: 12){
-                        
                         // MARK: Toggle button
                         Toggle(isOn: $toggleSwitch) {
                             HStack(){
                                 Image(systemName: "checkmark.circle")
                                     .font(.system(size: 22))
                                     .padding(.trailing, 6)
+                                    .foregroundColor(Color.secondary)
                                 
-                                Text(debitType(register: register.type))
+                                Text("\(toggleSwitch ? "" : "No") " + debitType(register: register.type))
                                     .font(.system(size: 18))
                             }
                         }
@@ -93,6 +93,7 @@ struct TransactionModal: View {
                                 Image(systemName: "calendar.badge.plus")
                                     .font(.system(size: 22))
                                     .padding(.trailing, 6)
+                                    .foregroundColor(Color.secondary)
                                 
                                 Text("Date")
                                     .font(.system(size: 18))
@@ -106,6 +107,7 @@ struct TransactionModal: View {
                             Image(systemName: "pencil")
                                 .font(.system(size: 22))
                                 .padding(.trailing, 6)
+                                .foregroundColor(Color.secondary)
                             
                             TextField("Description", text: $describerField)
                         }
@@ -119,6 +121,7 @@ struct TransactionModal: View {
                             Image(systemName: "bookmark")
                                 .font(.system(size: 22))
                                 .padding(.trailing, 6)
+                                .foregroundColor(Color.secondary)
                             
                             Button(action: {
                                 showModalView.toggle();
