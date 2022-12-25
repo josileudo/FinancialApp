@@ -57,7 +57,7 @@ struct ModalSheetView: View {
                     List(){
                         ForEach(Array(categories), id: \.id) { category in
                             //MARK: Add categories here
-                            CategoriesView(category: category, showModalView: $showModalView)
+                            CategoriesView(showModalView: $showModalView, category: category)
                         }
                     }
                     .listStyle(.plain)
