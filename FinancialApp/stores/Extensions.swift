@@ -7,6 +7,7 @@
 
 import Foundation;
 import SwiftUI;
+import SwiftUIFontIcon;
 
 extension Color {
     static let background = Color("Background");
@@ -67,3 +68,18 @@ func debitType(register: TransactionType.RawValue) -> String {
     }
 }
 
+func returnCategoryIcon(id: Int) -> FontAwesomeCode {
+    if let categoryIcon = Category.all.first(where: { $0.id == id }) {
+        return categoryIcon.icon
+    } else {
+        return Category.all.first!.icon
+    }
+}
+
+func returnCategoryName(id: Int) -> String {
+    if let categoryIcon = Category.all.first(where: { $0.id == id }) {
+        return categoryIcon.name
+    } else {
+        return Category.all.first!.name
+    }
+}
