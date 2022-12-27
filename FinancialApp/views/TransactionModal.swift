@@ -20,10 +20,10 @@ struct TransactionModal: View {
     @State private var toggleSwitch: Bool = false;
     @State private var showModalView: Bool = false;
     @State private var date = Date();
-  
-    init(stated: Bool = false, isPresented: Binding<Bool>){
-        self._isPresented = isPresented
-    }
+    @State private var isShowDate: Bool = false;
+    @State private var selectButton: Int = 1;
+    
+    var setDateButton: [DateButton];
     
     var body: some View {
         let columns = [
@@ -88,18 +88,32 @@ struct TransactionModal: View {
                         Divider()
                         
                         //MARK: DatePicker component
-                        DatePicker( selection: $date, in: Date()..., displayedComponents: [.date]) {
-                            HStack(){
-                                Image(systemName: "calendar.badge.plus")
-                                    .font(.system(size: 22))
-                                    .padding(.trailing, 6)
-                                    .foregroundColor(Color.secondary)
+                        HStack(){
+                            Image(systemName: "calendar.badge.plus")
+                                .font(.system(size: 22))
+                                .padding(.trailing, 6)
+                                .foregroundColor(Color.secondary)
+                           
+                            HStack {
+                                ForEach(Array(setDateButton), id: \.id) { button in
+                                    Button(action: {
+                                        selectButton = button.id;
+                                    }, label: {
+                                        Text("\(button.name)")
+                                    }).buttonStyle(DateButtonStyle(isSelected: selectButton == button.id))
+                                }
                                 
-                                Text("Date")
-                                    .font(.system(size: 18))
                             }
+                            
+                            if(isShowDate) {
+//                                DatePicker( selection: $date, in: Date()..., displayedComponents: [.date]){}
+//                                   .frame(minHeight: 40)
+//                                   .datePickerStyle(DefaultDatePickerStyle)
+                            }
+               
                         }
-                        .frame(minHeight: 40)
+                            .frame(minHeight: 40)
+                        
                         Divider()
                         
                         //MARK: Describer component
@@ -191,9 +205,9 @@ struct TransactionModal: View {
 
 struct PresseableButtonStyle: ButtonStyle {
     
-    @EnvironmentObject var register : RegisterTypes
-    
-    func makeBody(configuration: Configuration) -> some View {
+    @EnvironmentObject var register : RegisterTypes;
+        
+    @MainActor func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .padding(12)
             .background(choiceColorToType(typeRegister: register.type))
@@ -202,10 +216,32 @@ struct PresseableButtonStyle: ButtonStyle {
             .scaleEffect(configuration.isPressed ? 1.02 : 1)
             .shadow(color: Color.black.opacity(0.3), radius: 30, x: 0, y: 2)
     }
+
+}
+
+struct DateButtonStyle : ButtonStyle {
+    @EnvironmentObject var register : RegisterTypes
+    var isSelected: Bool = false
+     
+    func makeBody(configuration: Configuration) -> some View {
+             
+        configuration.label
+            .font(.system(size: 16, weight: .semibold))
+            .foregroundColor(Color.white)
+            .padding([.trailing, .leading], 10)
+            .padding([.top, .bottom], 6)
+            .background(isSelected
+                            ? choiceColorToType(typeRegister: register.type)
+                            : Color.secondary.opacity(0.6)
+                       )
+            .cornerRadius(20)
+            .brightness(configuration.isPressed ? 0.1 : 0)
+            .scaleEffect(configuration.isPressed ? 1.02 : 1)
+    }
 }
 
 struct TransactionModal_Previews: PreviewProvider {
     static var previews: some View {
-        TransactionModal(stated: false, isPresented: .constant(false))
+        TransactionModal(isPresented: .constant(false), setDateButton: DateButton.dateButtons)
     }
 }

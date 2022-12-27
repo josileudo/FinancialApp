@@ -118,6 +118,25 @@ extension Category {
     static let all: [Category] = categories + subCategories;
 }
 
+struct DateButton: Hashable, Decodable {
+    let id: Int
+    var name: String
+}
+
+extension DateButton {
+    static let today = DateButton(id: 1, name: "Today")
+    static let yesterday = DateButton(id: 2, name: "Yesterday")
+    static let others = DateButton(id: 3, name: "Other")
+}
+
+extension DateButton {
+    static let dateButtons: [DateButton] = [
+        today, yesterday, others
+    ]
+    
+    static let all: [DateButton] = dateButtons;
+}
+
 extension String {
     func captilizingFirstLetter() -> String {
         return prefix(1).uppercased() + self.lowercased().dropFirst()

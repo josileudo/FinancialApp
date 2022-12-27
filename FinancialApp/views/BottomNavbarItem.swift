@@ -63,7 +63,7 @@ struct BottomNavbarItem: View {
                     .frame(maxWidth: .infinity, maxHeight: 30)
                 })
                 .fullScreenCover(isPresented: $shouldShowModal ){
-                    TransactionModal(isPresented: $shouldShowModal)
+                    TransactionModal(isPresented: $shouldShowModal, setDateButton: DateButton.dateButtons)
                 }
             }
         }
