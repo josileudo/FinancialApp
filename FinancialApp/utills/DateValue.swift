@@ -8,11 +8,19 @@
 import Foundation
 
 @MainActor class DateValue: ObservableObject {
-    @Published var date: Date;
+    @Published var date: Date = Date();
     @Published var show: Bool;
     
     init() {
-        self.date = Date();
+        let calendar = Calendar.current;
+        let components = calendar.dateComponents([.month, .day, .year], from: Date());
+        
+        date = calendar.date(from: components)!
+        
         self.show = false;
+    }
+    
+    func dateFormatted() -> String {
+        return date.formatted(date: .abbreviated, time: .omitted)
     }
 }

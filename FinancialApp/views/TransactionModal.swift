@@ -98,7 +98,7 @@ struct TransactionModal: View {
                                
                                 HStack {
                                     if(dateValue.show) {
-                                        Text("\(dateValue.date, format: .dateTime.year().month().day())")
+                                        Text(dateValue.dateFormatted())
                                     } else {
                                         ForEach(Array(setDateButton), id: \.id) { button in
                                             Button(action: {
@@ -117,7 +117,9 @@ struct TransactionModal: View {
                                             })
                                             .buttonStyle(DateButtonStyle(isSelected: selectButton == button.id));
                                         }
+                                        
                                     }
+                                    
                                 }
                                 Spacer()
                             }
