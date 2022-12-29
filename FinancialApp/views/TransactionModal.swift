@@ -13,7 +13,7 @@ struct TransactionModal: View {
     
     @StateObject var register = RegisterTypes();
     @StateObject var categoryId = CategoryId();
-    @ObservedObject var dateValue = DateValue()
+    @ObservedObject var dateValue = DateValue();
   
     @State private var menu: String = "";
     @State private var describerField: String = "";

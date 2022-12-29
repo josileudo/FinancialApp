@@ -8,12 +8,6 @@
 import SwiftUI
 import SwiftUIFontIcon
 
-//extension AnyTransition {
-//    static var moveAndFade: AnyTransition {
-//        .
-//    }
-//}
-
 struct ModalDateView: View {
   
     @Binding var showModalDateView: Bool;

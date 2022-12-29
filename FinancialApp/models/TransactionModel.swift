@@ -46,8 +46,8 @@ struct Transaction: Identifiable, Decodable, Hashable {
 }
 
 enum TransactionType: String, CaseIterable {
-    case debit = "debit"
-    case credit = "credit"
+    case debit = "debit";
+    case credit = "credit";
     
     static let allValues = [debit, credit]
 }
@@ -126,7 +126,7 @@ struct DateButton: Hashable, Decodable {
 extension DateButton {
     static let today = DateButton(id: 1, name: "Today")
     static let yesterday = DateButton(id: 2, name: "Yesterday")
-    static let others = DateButton(id: 3, name: "Other")
+    static let others = DateButton(id: 3, name: "Others")
 }
 
 extension DateButton {

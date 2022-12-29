@@ -12,7 +12,7 @@ import Foundation
     @Published var show: Bool;
     
     init() {
-        self.date = Date()
-        self.show = false
+        self.date = Date();
+        self.show = false;
     }
 }
