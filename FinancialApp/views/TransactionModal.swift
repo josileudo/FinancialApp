@@ -13,18 +13,20 @@ struct TransactionModal: View {
     
     @StateObject var register = RegisterTypes();
     @StateObject var categoryId = CategoryId();
-    
-    @State private var value: String = "R$ 0,00";
+    @ObservedObject var dateValue = DateValue()
+  
     @State private var menu: String = "";
     @State private var describerField: String = "";
     @State private var toggleSwitch: Bool = false;
     @State private var showModalView: Bool = false;
-    @State private var date = Date();
+    @State private var showModalDateView: Bool = false;
+    @State private var value: String = "R$ 0,00";
+    
     @State private var isShowDate: Bool = false;
     @State private var selectButton: Int = 1;
     
     var setDateButton: [DateButton];
-    
+   
     var body: some View {
         let columns = [
             GridItem(.flexible(), spacing: nil, alignment: .leading),
@@ -88,31 +90,39 @@ struct TransactionModal: View {
                         Divider()
                         
                         //MARK: DatePicker component
-                        HStack(){
-                            Image(systemName: "calendar.badge.plus")
-                                .font(.system(size: 22))
-                                .padding(.trailing, 6)
-                                .foregroundColor(Color.secondary)
-                           
-                            HStack {
-                                ForEach(Array(setDateButton), id: \.id) { button in
-                                    Button(action: {
-                                        selectButton = button.id;
-                                    }, label: {
-                                        Text("\(button.name)")
-                                    }).buttonStyle(DateButtonStyle(isSelected: selectButton == button.id))
+                            HStack(){
+                                Image(systemName: "calendar.badge.plus")
+                                    .font(.system(size: 22))
+                                    .padding(.trailing, 6)
+                                    .foregroundColor(Color.secondary)
+                               
+                                HStack {
+                                    if(dateValue.show) {
+                                        Text("\(dateValue.date, format: .dateTime.year().month().day())")
+                                    } else {
+                                        ForEach(Array(setDateButton), id: \.id) { button in
+                                            Button(action: {
+                                                switch button.id {
+                                                case 1:
+                                                    dateValue.date = Date.now;
+                                                    selectButton = 1
+                                                case 2:
+                                                    dateValue.date = Calendar.current.date(byAdding: .day, value: -1, to: Date())!;
+                                                    selectButton = 2
+                                                default:
+                                                    showModalDateView.toggle()
+                                                }
+                                            }, label: {
+                                                Text("\(button.name)");
+                                            })
+                                            .buttonStyle(DateButtonStyle(isSelected: selectButton == button.id));
+                                        }
+                                    }
                                 }
-                                
+                                Spacer()
                             }
-                            
-                            if(isShowDate) {
-//                                DatePicker( selection: $date, in: Date()..., displayedComponents: [.date]){}
-//                                   .frame(minHeight: 40)
-//                                   .datePickerStyle(DefaultDatePickerStyle)
-                            }
-               
-                        }
-                            .frame(minHeight: 40)
+                            .frame(maxWidth: .infinity, minHeight: 40)
+                            .onTapGesture(){ showModalDateView.toggle() }
                         
                         Divider()
                         
@@ -190,7 +200,7 @@ struct TransactionModal: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
                 
             ModalSheetView(categories: Category.categories, showModalView: $showModalView)
-               
+            ModalDateView(showModalDateView: $showModalDateView)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background (content: {
@@ -200,6 +210,7 @@ struct TransactionModal: View {
         })
         .environmentObject(register)
         .environmentObject(categoryId)
+        .environmentObject(dateValue)
     }
 }
 
@@ -209,7 +220,7 @@ struct PresseableButtonStyle: ButtonStyle {
         
     @MainActor func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .padding(12)
+            .padding(8)
             .background(choiceColorToType(typeRegister: register.type))
             .cornerRadius(30)
             .brightness(configuration.isPressed ? 0.1 : 0)
@@ -226,13 +237,13 @@ struct DateButtonStyle : ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
              
         configuration.label
-            .font(.system(size: 16, weight: .semibold))
-            .foregroundColor(Color.white)
-            .padding([.trailing, .leading], 10)
-            .padding([.top, .bottom], 6)
+            .font(.system(size: 14, weight: .semibold))
+            .foregroundColor(isSelected ? Color.white : Color.secondary)
+            .padding([.trailing, .leading], 9)
+            .padding([.top, .bottom], 4)
             .background(isSelected
                             ? choiceColorToType(typeRegister: register.type)
-                            : Color.secondary.opacity(0.6)
+                            : Color.secondary.opacity(0.1)
                        )
             .cornerRadius(20)
             .brightness(configuration.isPressed ? 0.1 : 0)
