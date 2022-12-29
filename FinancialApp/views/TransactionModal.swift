@@ -13,18 +13,20 @@ struct TransactionModal: View {
     
     @StateObject var register = RegisterTypes();
     @StateObject var categoryId = CategoryId();
-    
-    @State private var value: String = "R$ 0,00";
+    @ObservedObject var dateValue = DateValue();
+  
     @State private var menu: String = "";
     @State private var describerField: String = "";
     @State private var toggleSwitch: Bool = false;
     @State private var showModalView: Bool = false;
-    @State private var date = Date();
-  
-    init(stated: Bool = false, isPresented: Binding<Bool>){
-        self._isPresented = isPresented
-    }
+    @State private var showModalDateView: Bool = false;
+    @State private var value: String = "R$ 0,00";
     
+    @State private var isShowDate: Bool = false;
+    @State private var selectButton: Int = 1;
+    
+    var setDateButton: [DateButton];
+   
     var body: some View {
         let columns = [
             GridItem(.flexible(), spacing: nil, alignment: .leading),
@@ -88,18 +90,40 @@ struct TransactionModal: View {
                         Divider()
                         
                         //MARK: DatePicker component
-                        DatePicker( selection: $date, in: Date()..., displayedComponents: [.date]) {
                             HStack(){
                                 Image(systemName: "calendar.badge.plus")
                                     .font(.system(size: 22))
                                     .padding(.trailing, 6)
                                     .foregroundColor(Color.secondary)
-                                
-                                Text("Date")
-                                    .font(.system(size: 18))
+                               
+                                HStack {
+                                    if(dateValue.show) {
+                                        Text("\(dateValue.date, format: .dateTime.year().month().day())")
+                                    } else {
+                                        ForEach(Array(setDateButton), id: \.id) { button in
+                                            Button(action: {
+                                                switch button.id {
+                                                case 1:
+                                                    dateValue.date = Date.now;
+                                                    selectButton = 1
+                                                case 2:
+                                                    dateValue.date = Calendar.current.date(byAdding: .day, value: -1, to: Date())!;
+                                                    selectButton = 2
+                                                default:
+                                                    showModalDateView.toggle()
+                                                }
+                                            }, label: {
+                                                Text("\(button.name)");
+                                            })
+                                            .buttonStyle(DateButtonStyle(isSelected: selectButton == button.id));
+                                        }
+                                    }
+                                }
+                                Spacer()
                             }
-                        }
-                        .frame(minHeight: 40)
+                            .frame(maxWidth: .infinity, minHeight: 40)
+                            .onTapGesture(){ showModalDateView.toggle() }
+                        
                         Divider()
                         
                         //MARK: Describer component
@@ -176,7 +200,7 @@ struct TransactionModal: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
                 
             ModalSheetView(categories: Category.categories, showModalView: $showModalView)
-               
+            ModalDateView(showModalDateView: $showModalDateView)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background (content: {
@@ -186,26 +210,49 @@ struct TransactionModal: View {
         })
         .environmentObject(register)
         .environmentObject(categoryId)
+        .environmentObject(dateValue)
     }
 }
 
 struct PresseableButtonStyle: ButtonStyle {
     
-    @EnvironmentObject var register : RegisterTypes
-    
-    func makeBody(configuration: Configuration) -> some View {
+    @EnvironmentObject var register : RegisterTypes;
+        
+    @MainActor func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .padding(12)
+            .padding(8)
             .background(choiceColorToType(typeRegister: register.type))
             .cornerRadius(30)
             .brightness(configuration.isPressed ? 0.1 : 0)
             .scaleEffect(configuration.isPressed ? 1.02 : 1)
             .shadow(color: Color.black.opacity(0.3), radius: 30, x: 0, y: 2)
     }
+
+}
+
+struct DateButtonStyle : ButtonStyle {
+    @EnvironmentObject var register : RegisterTypes
+    var isSelected: Bool = false
+     
+    func makeBody(configuration: Configuration) -> some View {
+             
+        configuration.label
+            .font(.system(size: 14, weight: .semibold))
+            .foregroundColor(isSelected ? Color.white : Color.secondary)
+            .padding([.trailing, .leading], 9)
+            .padding([.top, .bottom], 4)
+            .background(isSelected
+                            ? choiceColorToType(typeRegister: register.type)
+                            : Color.secondary.opacity(0.1)
+                       )
+            .cornerRadius(20)
+            .brightness(configuration.isPressed ? 0.1 : 0)
+            .scaleEffect(configuration.isPressed ? 1.02 : 1)
+    }
 }
 
 struct TransactionModal_Previews: PreviewProvider {
     static var previews: some View {
-        TransactionModal(stated: false, isPresented: .constant(false))
+        TransactionModal(isPresented: .constant(false), setDateButton: DateButton.dateButtons)
     }
 }
