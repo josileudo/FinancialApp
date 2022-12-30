@@ -92,25 +92,27 @@ final class TransactionListViewModel: ObservableObject {
     
     // TODO: Create filter with (month and year)
     
-    func totalTransactions() -> TotalTransactions {
-        guard !transactions.isEmpty else { return 0}
-        
+    func totalTransactions() -> String {
         var sum: Double = .zero;
         sum = transactions.reduce(0){$0 + $1.signedAmount};
         
-        return sum;
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        
+        return formatter.string(from: .init(value: sum)) ?? "$0.00";
     }
     
-    func incomeTotal(type: TransactionType) -> Double {
-        guard !transactions.isEmpty else { return 0}
+    func incomeTotal(type: TransactionType) -> String {
         var valueEx: Double = .zero;
         
         let typeExpense = transactions.filter{$0.amount > 0 && $0.type == type.rawValue}
         let res = typeExpense.reduce(0){$0 + $1.amount}
             
         valueEx = res;
-        print(valueEx);
         
-        return valueEx
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        
+        return formatter.string(from: .init(value: valueEx)) ?? "$0.00";
     }
 }

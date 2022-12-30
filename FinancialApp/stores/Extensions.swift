@@ -19,6 +19,18 @@ extension Color {
     static let headerIncomeColor = Color("HeaderIncomeColor");
 }
 
+extension Color {
+    static let autoAndTransportIconColor = Color("autoAndTransportIconColor");
+    static let billsAndUtilitiesIconColor = Color("billsAndUtilitiesIconColor");
+    static let entertainementIconColor = Color("entertainementIconColor");
+    static let feesAndChangesIconColor = Color("feesAndChangesIconColor");
+    static let foodAndDiningIconColor = Color("foodAndDiningIconColor");
+    static let homeIconColor = Color("homeIconColor");
+    static let incomeIconColor = Color("incomeIconColor");
+    static let shoppingIconColor = Color("shoppingIconColor");
+    static let transferIconColor = Color("transferIconColor");
+}
+
 extension DateFormatter {
     static let allNumericUSA: DateFormatter = {
         print("Initializing DateFormatter");
@@ -81,5 +93,13 @@ func returnCategoryName(id: Int) -> String {
         return categoryIcon.name
     } else {
         return Category.all.first!.name
+    }
+}
+
+func returnCategoryColor(id: Int) -> Color {
+    if let categoryIconColor = Category.all.first(where: { $0.id == id }) {
+        return categoryIconColor.color ?? Color.icon
+    } else {
+        return Category.all.first!.color ?? Color.icon
     }
 }

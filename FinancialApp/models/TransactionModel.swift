@@ -56,19 +56,20 @@ struct Category {
     let id: Int
     let name: String
     let icon: FontAwesomeCode
+    var color: Color?
     var mainCategoryId: Int?
 }
 
 extension Category {
-    static let autoAndTransport = Category(id: 1, name: "Auto & Transport", icon: .car_alt);
-    static let billsAndUtilities = Category(id: 2, name: "Billis & Utilities", icon: .file_invoice_dollar);
-    static let entertainement = Category(id: 3, name: "Entertainment", icon: .film);
-    static let feesAndChanges = Category(id: 4, name: "Fees & Changes", icon: .hand_holding);
-    static let foodAndDining = Category(id: 5, name: "Food & Dining", icon: .hamburger);
-    static let home = Category(id: 6, name: "Home", icon: .home);
-    static let income = Category(id: 7, name: "Income", icon: .dollar_sign);
-    static let shopping = Category(id: 8, name: "Shopping", icon: .shopping_cart);
-    static let transfer = Category(id: 9, name: "Transfer", icon: .exchange_alt);
+    static let autoAndTransport = Category(id: 1, name: "Auto & Transport", icon: .car_alt, color: .autoAndTransportIconColor);
+    static let billsAndUtilities = Category(id: 2, name: "Billis & Utilities", icon: .file_invoice_dollar, color: .billsAndUtilitiesIconColor);
+    static let entertainement = Category(id: 3, name: "Entertainment", icon: .film, color: .entertainementIconColor);
+    static let feesAndChanges = Category(id: 4, name: "Fees & Changes", icon: .hand_holding, color: .feesAndChangesIconColor);
+    static let foodAndDining = Category(id: 5, name: "Food & Dining", icon: .hamburger, color: .foodAndDiningIconColor);
+    static let home = Category(id: 6, name: "Home", icon: .home, color: .homeIconColor);
+    static let income = Category(id: 7, name: "Income", icon: .dollar_sign, color: .incomeIconColor);
+    static let shopping = Category(id: 8, name: "Shopping", icon: .shopping_cart, color: .shoppingIconColor);
+    static let transfer = Category(id: 9, name: "Transfer", icon: .exchange_alt, color: .transferIconColor);
     
     static let publicTransportation = Category(id: 101, name: "Public Transportation", icon: .bus, mainCategoryId: 1);
     static let taxi = Category(id: 102, name: "Taxi", icon: .taxi, mainCategoryId: 1);
