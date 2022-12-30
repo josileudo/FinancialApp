@@ -20,11 +20,11 @@ struct TransactionBalance: View {
                 Text("Count Balance")
                     .opacity(0.7)
                     .lineLimit(1)
-                    .font(.system(size: 16))
+                    .font(.system(size: 14))
                         
-                Text(dataAmount, format: .currency(code: "USD"))
+                Text(dataAmount)
                     .opacity(0.8)
-                    .font(.system(size: 40, weight: .bold))
+                    .font(.system(size: 36, weight: .bold))
                     .lineLimit(1)
                     
                 TransactionExpenses();

@@ -155,7 +155,7 @@ struct TransactionModal: View {
                             }, label: {
                                 HStack(){
                                     FontIcon.text(.awesome5Solid(code: returnCategoryIcon(id: categoryId.id)),
-                                                  fontsize: 20, color: Color.icon
+                                                  fontsize: 20, color: returnCategoryColor(id: categoryId.id)
                                     )
                                     
                                     Text(returnCategoryName(id: categoryId.id))
@@ -166,7 +166,7 @@ struct TransactionModal: View {
                                 .padding([.leading, .trailing], 14)
                                 .overlay(
                                     Capsule(style: .continuous)
-                                        .stroke(Color.icon, lineWidth: 1)
+                                        .stroke(returnCategoryColor(id: categoryId.id), lineWidth: 1)
                                 )
                             })
                         }

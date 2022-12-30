@@ -19,11 +19,11 @@ struct TransactionExpenses: View {
             HStack(spacing: 8) {
                 
                 // MARK: Income icon
-                RoundedRectangle(cornerRadius: 20, style: .continuous)
+                RoundedRectangle(cornerRadius: 18, style: .continuous)
                     .fill(Color.income)
                     .frame(width: 35, height: 35)
                     .overlay {
-                        FontIcon.text(.materialIcon(code: .arrow_upward), fontsize: 25, color: Color.background)
+                        FontIcon.text(.materialIcon(code: .arrow_upward), fontsize: 22, color: Color.background)
                     }
                 
                 // MARK: Income view
@@ -32,12 +32,12 @@ struct TransactionExpenses: View {
                                         
                     Text("Credit")
                         .font(.subheadline)
-                        .opacity(0.9)
+                        .opacity(0.6)
                         
-                    Text(dataCredit, format: .currency(code: "USD"))
+                    Text(dataCredit)
                         .bold()
                         .lineLimit(1)
-                        .font(.system(size: 20))
+                        .font(.system(size: 16))
                         .foregroundColor(Color.income)
                 }
             }
@@ -52,7 +52,7 @@ struct TransactionExpenses: View {
                     .fill(Color.expense)
                     .frame(width: 35, height: 35)
                     .overlay {
-                        FontIcon.text(.materialIcon(code: .arrow_downward), fontsize: 25, color: Color.background)
+                        FontIcon.text(.materialIcon(code: .arrow_downward), fontsize: 22, color: Color.background)
                     }
                 
                 VStack(alignment: .leading, spacing: 5) {
@@ -61,12 +61,12 @@ struct TransactionExpenses: View {
                     // MARK: Expense view
                     Text("Debit")
                         .font(.subheadline)
-                        .opacity(0.9)
+                        .opacity(0.6)
                     
-                    Text(dataDebit, format: .currency(code: "USD"))
+                    Text(dataDebit)
                         .bold()
                         .lineLimit(1)
-                        .font(.system(size: 20))
+                        .font(.system(size: 16))
                         .foregroundColor(Color.expense)
                 }
             }
