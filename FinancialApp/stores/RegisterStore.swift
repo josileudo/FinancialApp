@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 class RegisterStore: ObservableObject {
-    @Published var store: [Register] = [];
+    @Published var registerStore: [Register] = [];
     
     private static func fileUrl() throws -> URL {
         try FileManager.default.url(for: .documentDirectory,
@@ -35,6 +35,26 @@ class RegisterStore: ObservableObject {
                     completion(.success(register));
                     print(completion(.success(register)));
                 }
+            } catch {
+                DispatchQueue.main.async {
+                    completion(.failure(error));
+                    print(completion(.failure(error)));
+                }
+            }
+        }
+    }
+    
+    static func save(registerStore: [Register], completion: @escaping(Result<Int, Error>) -> Void) {
+        DispatchQueue.global(qos: .background).async {
+            do {
+                let data = try JSONEncoder().encode(registerStore);
+                let outfile = try fileUrl();
+                try data.write(to: outfile);
+                DispatchQueue.main.async {
+                    completion(.success(registerStore.count));
+                    print(completion(.success(registerStore.count)));
+                }
+                
             } catch {
                 DispatchQueue.main.async {
                     completion(.failure(error));
