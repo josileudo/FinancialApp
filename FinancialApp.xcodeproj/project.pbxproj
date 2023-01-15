@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2F14A7FD2972FA0300E63A53 /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F14A7FC2972FA0300E63A53 /* RegisterModel.swift */; };
+		2F14A80329747BB400E63A53 /* RegisterStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F14A80229747BB400E63A53 /* RegisterStore.swift */; };
 		2F43CE922938E654006BE2EC /* DropDownMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F43CE912938E654006BE2EC /* DropDownMenuView.swift */; };
 		D20A343328E4868800409FFE /* TransactionModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20A343228E4868800409FFE /* TransactionModal.swift */; };
 		D20A7A8028A6DB0F0084B931 /* TransactionExpenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20A7A7F28A6DB0F0084B931 /* TransactionExpenses.swift */; };
@@ -60,6 +61,7 @@
 
 /* Begin PBXFileReference section */
 		2F14A7FC2972FA0300E63A53 /* RegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
+		2F14A80229747BB400E63A53 /* RegisterStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterStore.swift; sourceTree = "<group>"; };
 		2F1B38C028CFF7470074566F /* FinancialAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinancialAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F1B38C128CFF7470074566F /* FinancialAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinancialAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F43CE912938E654006BE2EC /* DropDownMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenuView.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				D2CFA21D289323FA00AE5981 /* Extensions.swift */,
+				2F14A80229747BB400E63A53 /* RegisterStore.swift */,
 			);
 			path = stores;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				D246163B2944B728007D3433 /* RegisterType.swift in Sources */,
 				D2B1BB7E289476700053419C /* PreviewData.swift in Sources */,
 				D247CF13289A9C2600C76FB6 /* RecentTransactionList.swift in Sources */,
+				2F14A80329747BB400E63A53 /* RegisterStore.swift in Sources */,
 				D2A83F3C289D9B200094EB52 /* TransactionsList.swift in Sources */,
 				D2E1B61129574F46001CC8D0 /* CategoryId.swift in Sources */,
 				D20A7A8028A6DB0F0084B931 /* TransactionExpenses.swift in Sources */,
