@@ -17,9 +17,7 @@ extension Color {
     static let income = Color("Income");
     static let expense = Color("expense");
     static let headerIncomeColor = Color("HeaderIncomeColor");
-}
-
-extension Color {
+    
     static let autoAndTransportIconColor = Color("autoAndTransportIconColor");
     static let billsAndUtilitiesIconColor = Color("billsAndUtilitiesIconColor");
     static let entertainementIconColor = Color("entertainementIconColor");
