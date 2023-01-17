@@ -8,22 +8,21 @@
 import SwiftUI
 
 struct TransactionList: View {
-    @EnvironmentObject var transactionListVM: TransactionListViewModel
+    @Binding var register: [Register];
     
     var body: some View {
         VStack {
             List {
                 // MARK: Transaction Groups
-                ForEach(Array(transactionListVM.groupTransactionByMonth()), id: \.key) { month,
-                    transactions in
+                ForEach($register) { $register in
                     Section {
                         // MARK: Transaction List
-                        ForEach(transactions) { transaction in
-                            TransactionRow(transaction: transaction)
-                        }
+                        //ForEach(transactions) { transaction in
+                        TransactionRow(transaction: register)
+                       // }
                     } header: {
                         // MARK: Transaction Month
-                        Text(month);
+                        //Text(month);
                     }
                     .listSectionSeparator(.hidden)
                 }
@@ -36,22 +35,15 @@ struct TransactionList: View {
 }
 
 struct SwiftUIView_Previews: PreviewProvider {
-    static let transactionListVM: TransactionListViewModel = {
-        let transactionListVM = TransactionListViewModel();
-        transactionListVM.transactions = transactionListPreviewData;
-        return transactionListVM;
-    }()
-    
     static var previews: some View {
         Group {
             NavigationView {
-                TransactionList()
+                TransactionList(register: .constant(Register.sampleData))
             }
             NavigationView {
-                TransactionList()
+                TransactionList(register: .constant(Register.sampleData))
                     .preferredColorScheme(.dark)
             }
         }
-        .environmentObject(transactionListVM);
     }
 }

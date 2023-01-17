@@ -11,22 +11,26 @@ import SwiftUICharts;
 struct ContentView: View {
     @State var selectIndex: Int = selectedPreviewIndex;
     @State var shouldShowModal: Bool = false;
+    @Binding var register: [Register];
         
-    init() {
-        UITabBar.appearance().isHidden = true
-    }
+//    init() {
+//        UITabBar.appearance().isHidden = true
+//    }
     
     var body: some View {
         VStack(spacing: 0) {
             ZStack(alignment: .bottom) {
                                
                 //MARK: Route pages
-                RoutePages(selectIndex: $selectIndex);
+                RoutePages(selectIndex: $selectIndex, register: $register);
                 Spacer();
             }
             
             // MARK: TabBar navigation
-            BottomNavbarItem(selectIndex: $selectIndex, shouldShowModal: self.$shouldShowModal);
+            BottomNavbarItem(selectIndex: $selectIndex,
+                             shouldShowModal: self.$shouldShowModal,
+                             register: $register
+            );
         }
     }
 }
@@ -39,10 +43,9 @@ struct ContentView_Previews: PreviewProvider {
     }()
     static var previews: some View {
         Group {
-            ContentView()
-            ContentView()
+            ContentView(register: .constant(Register.sampleData))
+            ContentView(register: .constant(Register.sampleData))
                 .preferredColorScheme(.dark)
         }
-        .environmentObject(transactionListVM)
     }
 }

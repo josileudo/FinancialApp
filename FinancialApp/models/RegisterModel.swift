@@ -10,13 +10,13 @@ import Foundation
 struct Register: Identifiable, Codable {
     let id: UUID
     var type: String
-    var value: Double
+    var value: String
     var isCheck: Bool
     var date: String
     var description: String
     var category: String
     
-    init(id: UUID = UUID(), type: String, value: Double, isCheck: Bool, date: String, description: String, category: String) {
+    init(id: UUID = UUID(), type: String, value: String, isCheck: Bool, date: String, description: String, category: String) {
         self.id = id
         self.type = type
         self.value = value
@@ -30,7 +30,7 @@ struct Register: Identifiable, Codable {
 extension Register {
     struct Data {
         var type: String = ""
-        var value: Double = 0.00
+        var value: String = "0.00"
         var isCheck: Bool = false
         var date: String = ""
         var description: String = ""
@@ -63,8 +63,8 @@ extension Register {
 
 extension Register {
     static let sampleData: [Register] = [
-        Register(type: "Debit", value: 60.00, isCheck: true, date: "2023-01-13 20:28:39 +0000", description: "Xbox pay", category: "Eletronics"),
-        Register(type: "Credit", value: 10.00, isCheck: true, date: "2023-01-10 20:28:39 +0000", description: "Jov", category: "home"),
-        Register(type: "Credit", value: 20.00, isCheck: true, date: "2023-01-11 20:28:39 +0000", description: "Job", category: "home")
+        Register(type: "Debit", value: "60.00", isCheck: true, date: "2023-01-13 20:28:39 +0000", description: "Xbox pay", category: "Eletronics"),
+        Register(type: "Credit", value: "10.00", isCheck: true, date: "2023-01-10 20:28:39 +0000", description: "Jov", category: "home"),
+        Register(type: "Credit", value: "20.00", isCheck: true, date: "2023-01-11 20:28:39 +0000", description: "Job", category: "home")
     ]
 }

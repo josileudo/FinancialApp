@@ -9,12 +9,23 @@ import SwiftUI
 
 @main
 struct FinancialApp: App {
-    @StateObject var transactionListVM = TransactionListViewModel();
+    @StateObject private var store = RegisterStore();
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environmentObject(transactionListVM);
+            NavigationView {
+                ContentView(register: $store.registerStore)
+            }
+            .onAppear{
+                RegisterStore.load { result in
+                    switch result {
+                    case .failure(let error):
+                        fatalError(error.localizedDescription)
+                    case .success(let registers):
+                        store.registerStore = registers
+                    }
+                }
+            }
         }
     }
 }

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct RecentTransactionList: View {
-    @EnvironmentObject var transactionListVM: TransactionListViewModel;
+        
+    @Binding var register: [Register]
     
     var body: some View {
         VStack {
@@ -21,7 +22,7 @@ struct RecentTransactionList: View {
                 
                 // MARK: Header Link
                 NavigationLink {
-                    TransactionList();
+                    TransactionList(register: $register);
                 } label: {
                     HStack(spacing: 4) {
                         Text("See All");
@@ -33,11 +34,11 @@ struct RecentTransactionList: View {
             .padding(.top);
             
             // MARK: Recent Transactions List
-            ForEach(Array(transactionListVM.transactions.prefix(5).enumerated()), id: \.element) { index, transaction in
-                TransactionRow(transaction: transaction)
-                
+            ForEach(register) { register in
+                TransactionRow(transaction: register)
+               
                 Divider()
-                    .opacity(index == 4 ? 0 : 1);
+                 //   .opacity(index == 4 ? 0 : 1);
             }
         }
         .padding()
@@ -49,19 +50,11 @@ struct RecentTransactionList: View {
     }
 
 struct RecentTransactionList_Previews: PreviewProvider {
-    static let transactionListVM: TransactionListViewModel = {
-        let transactionListVM = TransactionListViewModel();
-        transactionListVM.transactions = transactionListPreviewData;
-        return transactionListVM;
-    }()
-    
     static var previews: some View {
         Group {
-            RecentTransactionList()
-            RecentTransactionList()
+            RecentTransactionList(register: .constant(Register.sampleData))
+            RecentTransactionList(register: .constant(Register.sampleData))
                 .preferredColorScheme(.dark);
         }
-        .environmentObject(transactionListVM);
-        
     }
 }

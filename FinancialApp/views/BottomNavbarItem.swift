@@ -11,7 +11,7 @@ import SwiftUIFontIcon;
 struct BottomNavbarItem: View {
     @Binding var selectIndex: Int;
     @Binding var shouldShowModal: Bool;
-    
+    @Binding var register: [Register]
     @Namespace var animation;
     
     var icons : [String] = ["house", "list.bullet", "plus", "square.and.pencil", "ellipsis"]
@@ -63,7 +63,17 @@ struct BottomNavbarItem: View {
                     .frame(maxWidth: .infinity, maxHeight: 30)
                 })
                 .fullScreenCover(isPresented: $shouldShowModal ){
-                    TransactionModal(isPresented: $shouldShowModal, setDateButton: DateButton.dateButtons)
+                    TransactionModal(
+                        isPresented: $shouldShowModal,
+                        registerTransaction: $register,
+                        setDateButton: DateButton.dateButtons
+                    ) {
+                        RegisterStore.save(registerStore: register) { result in
+                            if case .failure(let error) = result {
+                                fatalError(error.localizedDescription)
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -79,8 +89,8 @@ struct BottomNavbarItem_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            BottomNavbarItem(selectIndex: .constant(selectedIndex), shouldShowModal: .constant(false))
-            BottomNavbarItem(selectIndex: .constant(selectedIndex), shouldShowModal: .constant(false))
+            BottomNavbarItem(selectIndex: .constant(selectedIndex), shouldShowModal: .constant(false), register: .constant(Register.sampleData))
+            BottomNavbarItem(selectIndex: .constant(selectedIndex), shouldShowModal: .constant(false), register: .constant(Register.sampleData))
                 .preferredColorScheme(.dark)
         }
     }

@@ -10,6 +10,8 @@ import SwiftUIFontIcon
 
 struct TransactionModal: View {
     @Binding var isPresented: Bool;
+    @Binding var registerTransaction: [Register]
+    @State private var data = Register.Data()
     
     @StateObject var register = RegisterTypes();
     @StateObject var categoryId = CategoryId();
@@ -20,19 +22,23 @@ struct TransactionModal: View {
     @State private var toggleSwitch: Bool = false;
     @State private var showModalView: Bool = false;
     @State private var showModalDateView: Bool = false;
-    @State private var value: String = "R$ 0,00";
+    @State private var value: String = "2.00";
     
     @State private var isShowDate: Bool = false;
     @State private var selectButton: Int = 1;
     
+    @Environment(\.scenePhase) private var scenePhase
+    
     var setDateButton: [DateButton];
-   
+    let saveAction: ()->Void;
     var body: some View {
         let columns = [
             GridItem(.flexible(), spacing: nil, alignment: .leading),
             GridItem(.fixed(200), spacing: nil, alignment: .center),
             GridItem(.flexible(), spacing: nil, alignment: .trailing),
         ]
+        
+        
         
         GeometryReader {_ in
             
@@ -61,7 +67,7 @@ struct TransactionModal: View {
                     Text("Write your \(register.type == "debit" ?  "expense" : "income")")
                         .font(.system(size: 14, weight: .semibold))
                     
-                    TextField("R$ 0,00", text: $value)
+                    TextField("R$ 0,00", text: ($value))
                         .font(.system(size: 40))
                 }
                 .frame(maxWidth: .infinity)
@@ -179,7 +185,19 @@ struct TransactionModal: View {
                 
                     //MARK: SAVE BUTTON
                     Button(action: {
+                        data.type = register.type;
+                        data.value = value;
+                        data.isCheck = toggleSwitch;
+                        data.date = dateValue.dateFormatted();
+                        data.description = describerField;
+                        data.category = "car and auto"
+                        
+                        let newRegister = Register(data: data)
+                        registerTransaction.append(newRegister)
+                        isPresented.toggle();
+                        data = Register.Data();
                       
+                      saveAction()
                     }, label: {
                         Text("Save")
                             .frame(maxWidth: .infinity)
@@ -213,6 +231,9 @@ struct TransactionModal: View {
         .environmentObject(register)
         .environmentObject(categoryId)
         .environmentObject(dateValue)
+        .onChange(of: scenePhase) { phase in
+            if phase == .inactive { saveAction ()}
+        }
     }
 }
 
@@ -255,6 +276,9 @@ struct DateButtonStyle : ButtonStyle {
 
 struct TransactionModal_Previews: PreviewProvider {
     static var previews: some View {
-        TransactionModal(isPresented: .constant(false), setDateButton: DateButton.dateButtons)
+        TransactionModal(isPresented: .constant(false), registerTransaction: .constant(Register.sampleData),
+                         setDateButton: DateButton.dateButtons,
+                         saveAction: {}
+        )
     }
 }

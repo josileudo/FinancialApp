@@ -10,6 +10,7 @@ import SwiftUICharts;
 
 struct HomePageView: View {
     @EnvironmentObject var transactionListVM: TransactionListViewModel;
+    @Binding var register: [Register]
     
     var body: some View {
         VStack(){
@@ -20,21 +21,21 @@ struct HomePageView: View {
                         .font(.title2)
                         .bold()
                     
-                    TransactionBalance();
+                   // TransactionBalance();
                     
                     // MARK: Chart
-                    let data = transactionListVM.accomulateTransactions()
+                    let data = $register
                     if (!data.isEmpty) {
-                        let totalExpenses = data.last?.1 ?? 0;
+                       // let totalExpenses = data.last?.1 ?? 0;
                         
                         CardView {
                             VStack (alignment: .leading) {
-                                ChartLabel((totalExpenses.formatted(.currency(code: "USD"))), type: .title)
-                                LineChart()
+//                                ChartLabel((totalExpenses.formatted(.currency(code: "USD"))), type: .title)
+//                                LineChart()
                             }
                             .background(Color.systemBackground)
                         }
-                        .data(data)
+                       // .data(data)
                         .chartStyle(ChartStyle(
                             backgroundColor: Color.systemBackground,
                             foregroundColor: ColorGradient(
@@ -46,7 +47,7 @@ struct HomePageView: View {
                     }
                     
                     // MARK: Transaction List
-                    RecentTransactionList();
+                    RecentTransactionList(register: $register);
                 }
                 .padding()
                 .frame(maxWidth: .infinity)
@@ -67,19 +68,11 @@ struct HomePageView: View {
 }
 
 struct HomePageView_Previews: PreviewProvider {
-    
-    static let transactionListVM: TransactionListViewModel = {
-        let transactionListVM = TransactionListViewModel();
-        transactionListVM.transactions = transactionListPreviewData;
-        return transactionListVM;
-    }()
-    
     static var previews: some View {
         Group {
-            HomePageView()
-            HomePageView()
+            HomePageView(register: .constant(Register.sampleData))
+            HomePageView(register: .constant(Register.sampleData))
                 .preferredColorScheme(.dark)
         }
-        .environmentObject(transactionListVM)
     }
 }

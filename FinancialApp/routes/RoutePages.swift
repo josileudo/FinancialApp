@@ -9,12 +9,13 @@ import SwiftUI
 
 struct RoutePages: View {
     @Binding var selectIndex: Int;
+    @Binding var register: [Register]
     
     var body: some View {
         switch selectIndex {
         case 0:
             NavigationView {
-              HomePageView();
+              HomePageView(register: $register);
             }
             .navigationViewStyle(.stack)
             .accentColor(.primary)
@@ -46,8 +47,8 @@ struct RoutePages_Previews: PreviewProvider {
     
     static var previews: some View {
         Group() {
-            RoutePages(selectIndex: .constant(0))
-            RoutePages(selectIndex: .constant(0))
+            RoutePages(selectIndex: .constant(0), register: .constant(Register.sampleData))
+            RoutePages(selectIndex: .constant(0), register: .constant(Register.sampleData))
                 .preferredColorScheme(.dark)
         }
         .environmentObject(transactionListVM)
